@@ -1,0 +1,98 @@
+﻿@using Samsung.Areas.Admin.Data
+@model IEnumerable<Samsung.Areas.Admin.Data.Category>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var msg = TempData["msg"] as ResponseMessage;
+    var message = "";
+    if (msg != null) { message = msg.Message; }
+}
+
+<h2>Danh sách chủng loại</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>@message </p>
+<table class="table">
+    <tr>
+        <th>
+            STT
+        </th>
+        <th>
+            Danh mục cha
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MetaSale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DescriptionSale)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Created)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Updated)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Status)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Priority)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.View)
+        </th>
+        <th></th>
+    </tr>
+    @{var index = 0;
+        foreach (var item in Model)
+        {
+            index++;
+            <tr>
+                <td>
+                    @index
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category2.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Name)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MetaSale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DescriptionSale)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Created)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Updated)
+                </td>
+                <td>
+                    @if (item.Status == true)
+                    {<p>Hiển thị</p>}
+                    @if (item.Status == false)
+                    {<p>Không hiển thị</p>}
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Priority)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.View)
+                </td>
+                <td>
+                    @Html.ActionLink("Edit", "Edit", new { id = item.Category_Id }) |
+                    @Html.ActionLink("Details", "Details", new { id = item.Category_Id }) |
+                    @Html.ActionLink("Delete", "Delete", new { id = item.Category_Id }, new { onclick = "return confirm('Are sure wants to delete?');" })
+                </td>
+            </tr>
+        }
+    }
+</table>

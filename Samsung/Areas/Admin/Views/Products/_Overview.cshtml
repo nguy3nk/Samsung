@@ -1,0 +1,99 @@
+﻿@model Samsung.Areas.Admin.Data.Product
+
+
+<div class="card-header py-3">
+    <div class="card-title align-items-start flex-column">
+        <h3 class="card-label font-weight-bolder text-dark">Thông tin cơ bản</h3>
+        <span class="text-muted font-weight-bold font-size-sm mt-1">Thay đổi thông tin</span>
+    </div>
+    <div class="card-toolbar">
+        <button type="reset" class="btn btn-success mr-2">@Html.ActionLink("Edit", "Edit", new { id = Model.Product_Id }, new { style = "text-decoration:none; color: inherit;" }) </button>
+        <button type="reset" class="btn btn-secondary">@Html.ActionLink("Back to List", "Index", new { style = "text-decoration:none; color: inherit;" })</button>
+    </div>
+</div>
+<div class="form">
+    <div class="card-body row">
+        <!--begin::Heading-->
+        <div class="col-7">
+            <!--begin::Form Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.Name)</label>
+                <div class="col-lg-9 col-xl-6">
+                    <input type="text" class="form-control form-control-lg form-control-solid" value="@Html.DisplayFor(model => model.Name)">
+                </div>
+            </div>
+            <!--begin::Form Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.Category.Name)</label>
+                <div class="col-lg-9 col-xl-6">
+                    <select class="form-control form-control-lg form-control-solid">
+                        <option value="International Date Line West">(GMT-11:00) International Date Line West</option>
+                    </select>
+                </div>
+            </div>
+
+            <!--begin::Form Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.Price)</label>
+                <div class="col-lg-9 col-xl-6">
+                    <input type="text" class="form-control form-control-lg form-control-solid" value="nick.watson@loop.com" placeholder="@Html.DisplayNameFor(model => model.Price)">
+
+                </div>
+            </div>
+            <!--begin::Form Group-->
+            <!--begin::Form Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.SalePrice)</label>
+                <div class="col-lg-9 col-xl-6">
+                    <input type="text" class="form-control form-control-lg form-control-solid" value="nick.watson@loop.com" placeholder="@Html.DisplayFor(model => model.SalePrice)">
+                </div>
+            </div>
+            <!--begin::Form Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.Status)</label>
+                <div class="col-lg-9 col-xl-6">
+                    <select class="form-control form-control-lg form-control-solid">
+                        <option>Select Language...</option>
+                        <option value="id">Bahasa Indonesia - Indonesian</option>
+                    </select>
+                </div>
+            </div>
+            <!--begin::Form Group-->
+            <!--begin::Form Group-->
+            <div class="form-group row">
+                <label class="col-xl-3 col-lg-3 col-form-label">@Html.DisplayNameFor(model => model.IsActive)</label>
+                <div class="col-lg-9 col-xl-6">
+                    <select class="form-control form-control-lg form-control-solid">
+                        <option>Select Language...</option>
+                        <option value="id">Bahasa Indonesia - Indonesian</option>
+                    </select>
+                </div>
+            </div>
+            <!--begin::Form Group-->
+            <!--begin::Form Group-->
+        </div>
+        <div class="col-5">
+            <div class="form-group">
+                <div class="col-lg-9 col-xl-9">
+                    <label class="text-center font-size-h1 col-form-label">Ảnh sản phẩm</label>
+                    <div class="image-input image-input-outline image-input-circle" id="kt_user_avatar" style="background-image: url(../../../../../theme/html/demo3/dist/assets/media/users/blank.png)">
+                        <div class="image-input-wrapper" style="background-image: url(https://preview.keenthemes.com/metronic/theme/html/demo3/dist/assets/media/svg/avatars/007-boy-2.svg)"></div>
+                        <label class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="change" data-toggle="tooltip" title="" data-original-title="Change avatar">
+                            <i class="fa fa-pen icon-sm text-muted"></i>
+                            <input type="file" name="profile_avatar" accept=".png, .jpg, .jpeg">
+                            <input type="hidden" name="profile_avatar_remove">
+                        </label>
+                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="cancel" data-toggle="tooltip" title="" data-original-title="Cancel avatar">
+                            <i class="ki ki-bold-close icon-xs text-muted"></i>
+                        </span>
+                        <span class="btn btn-xs btn-icon btn-circle btn-white btn-hover-text-primary btn-shadow" data-action="remove" data-toggle="tooltip" title="" data-original-title="Remove avatar">
+                            <i class="ki ki-bold-close icon-xs text-muted"></i>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="separator separator-dashed my-5"></div>
+    </div>
+</div>

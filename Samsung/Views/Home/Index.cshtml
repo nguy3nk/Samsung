@@ -1,0 +1,99 @@
+﻿@using Samsung.Areas.Admin.Data
+@model IEnumerable<Samsung.Areas.Admin.Data.Product>
+@{
+    ViewBag.Title = "Home Page";
+}
+    <div class="product-reference four-recommended-base-products">
+        @{ var index = 0;
+            var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+
+            foreach (var item in Model)
+            {
+                var imgSrc = "#";
+                if (item.ProductImage != null)
+                {
+                    var base64 = Convert.ToBase64String(item.ProductImage);
+                    imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                }
+                if (index == 0)
+                {
+                    @Html.Raw("<div class=\"product - row product - listing js - product - recommendation - offers flexing - center\">");
+
+                }
+
+
+
+                <div class="product-item col-xs-12 col-sm-6 col-md-3 text-center js-product-recommendation-block js-cms-tab-sub-header come-in recommended-products">
+                    <div class="product-image product-img-wrapper">
+                        <div class="thumb">
+                            <div class="list-item-img">
+                                <a href="#">
+                                    <img class="primary-image  product-no-image" src="@imgSrc" alt="">
+                                </a>
+                            </div>
+                        </div>
+                    </div> <!-- ngIf: detail.settings.numberOfColor> 1 -->
+                    <div class="product-content-wrapper">
+                        <div class="item-flex-top">
+                            <div class="variable-height-wrapper-s1">
+                                <div class="name">
+                                    <a title="View  in details" class="product-title"
+                                       href="#">
+                                        <span class="product-title text-overflow">@item.Name</span>
+                                    </a>
+                                    <span class="product-sku ng-binding">@item.Summary</span>
+                                </div>
+                                <!-- ngIf: detail.selectedVariant.averageRating -->
+                            </div>
+                            <div class="variable-height-wrapper-s2">
+                                <!-- ngIf: detail.selectedVariant.energyLabel.grade && detail.selectedVariant.energyLabel.gradeColor -->
+
+                            </div>
+                        </div>
+                        <div class="item-flex-bottom">
+                            <div class="campaign-price">
+                                <div class="base-version">
+                                    <div class="price-line-throught">
+                                        <span>@String.Format(info, "{0:c0}", item.Price)</span>
+                                    </div>
+                                    <div class="price">
+                                        <span>@String.Format(info, "{0:c0}", item.SalePrice)</span>
+                                    </div>
+                                    <div class="promo-leasing ng-isolate-scope" same-height="wrap-1">
+                                        <div class="product-promo promo">
+                                            <!-- ngIf: detail.selectedVariant.wasPriceFormatted -->
+                                        </div>
+                                        <div class="product-credit-finance">
+                                            <!-- ngIf: detail.selectedVariant.leasingInfo && detail.selectedVariant.leasingInfo.leasingPeriodicPrice.valuePriceData.formattedValue && !hideCreditFinance && !hideLeasingInfoLink -->
+                                            <!-- ngIf: detail.selectedVariant.leasingInfo.displayMessage -->
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="custom-button text-center" style="height: 44px;">
+                                <div class="actions--add-to-cart">
+                                    <div class="text-center">
+                                        <button class="btn btn-default btn-add-to-basket" value="@item.Product_Id" onclick="location.href='@Url.Action("AddToCart", "ShoppingCart", new { id = item.Product_Id})'">
+                                            <span>THÊM VÀO GIỎ HÀNG</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                index++;
+                if (index == 4)
+                {
+                    @Html.Raw("</div>");
+                }
+                if (index == 4)
+                {
+                    index = 0;
+                }
+
+            }
+        }
+    </div>

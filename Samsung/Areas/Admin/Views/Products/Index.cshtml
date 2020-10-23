@@ -1,0 +1,281 @@
+﻿@using Samsung.Areas.Admin.Data
+@model IEnumerable<Samsung.Areas.Admin.Data.Product>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/Admin/Views/Shared/_LayoutPage.cshtml";
+    var msg = TempData["msg"] as ResponseMessage;
+    var message = "";
+    if (msg != null) { message = msg.Message; }
+}
+
+<p>@message </p>
+<div class="card card-custom">
+    <!--begin::Header-->
+    <div class="card-header flex-wrap border-0 pt-6 pb-0">
+        <nav class="navbar navbar-expand-lg navbar-light container">
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="card-title">
+                <h3 class="card-label">
+                    Danh sách sản phẩm
+                </h3>
+            </div>
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <button class="btn btn-success mr-1">
+                        <i class="fas fa-plus-circle"></i>
+                        @Html.ActionLink("Thêm mới", "Create", null, new { style = "text-decoration:none; color: inherit;", })
+                    </button>
+                    <button class="btn btn-danger mr-1">
+                        <i class="fa fa-trash"></i>
+                        @Html.ActionLink("Xóa chọn", "DeleteSelected", new { lstApps = "_Parameter1" }, new { style = "text-decoration:none; color: inherit;", id = "deleteSelectAction" })
+                    </button>
+                    <button class="btn btn-info mr-1">
+                        <i class="fas fa-file-upload"></i>
+                        @Html.ActionLink("Xuất ra Excel", "DownloadExcel", new { products = @Model }, new { style = "text-decoration:none; color: inherit;" })
+                    </button>
+                    @using (Html.BeginForm("ImportFromExcel", "Products", FormMethod.Post, new { enctype = "multipart/form-data" }))
+                    {
+                        <button class="btn btn-primary mr-1 _m">
+                            <div class="">
+                                <i class="fas fa-file-export"></i>Cập nhật từ Excel
+                            </div>
+                            <input onchange="form.submit()" containerclassname="_5g_r" multiple="" name="fileExcel" display="inline" tabindex="0" type="file" class="_n _5f0v" id="js_91" accept=".csv, application/vnd.openxmlformats-officedocument.spreadsheetml.sheet, application/vnd.ms-excel">
+                        </button>
+                    }
+                </div>
+            </div>
+        </nav>
+    </div>
+    <nav class="navbar navbar-expand-lg navbar-light  flex-wrap container">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <a class="navbar-brand" href="#">Chọn danh mục</a>
+        @using (Html.BeginForm("Search", "Products", new { Area = "Admin"}, FormMethod.Get, new { @class = "collapse navbar-collapse" }))
+        {
+            <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+                <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+                    <li class="nav-item ml-2">
+                        @Html.DropDownList("categorySearch", null, "Toàn bộ danh mục", htmlAttributes: new { @class = "form-control group_search  form-control-lg" })
+                    </li>
+                    <li class="nav-item ml-2">
+                        @Html.DropDownList("statusSearch", null, "--Trạng thái--", htmlAttributes: new { @class = "form-control group_search  form-control-lg" })
+
+                    </li>
+                    <li class="nav-item">
+                        <select class="form-control ml-2 form-control-lg">
+                            <option>--Tùy chọn--</option>
+                        </select>
+                    </li>
+                </ul>
+                <div class="form-inline my-2 my-lg-0">
+                    <div class="form-inline">
+                        <input id="searchKey" type="search" class="form-control mr-sm-2" placeholder="Search" aria-label="Search" name="key" value="@ViewBag.key" />
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit"><i class="fas fa-search"></i></button>
+                    </div>
+                </div>
+            </div>
+        }
+    </nav>
+    <div class="separator separator-dashed my-5"></div>
+    <div class="datatable datatable-bordered datatable-head-custom datatable-default datatable-primary datatable-loaded container">
+        <table class="table table-bordered fit-width thead-light container">
+            <tr class="text-light bg-info">
+                <th>
+                    STT
+                </th>
+                <th>
+                    <input type="checkbox" id="checkAllToDelete" />
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Name)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.View)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Price)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.SalePrice)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Status)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.Priority)
+                </th>
+                <th>
+                    Đặt hàng
+                </th>
+                <th>
+                    Hiển thị
+                </th>
+                <th>
+                    Thao tác
+                </th>
+            </tr>
+
+            @{var index = 0;
+                foreach (var item in Model)
+                {
+                    index++;
+                    <tr>
+                        <td>
+                            @index
+                        </td>
+                        <td>
+                            <input type="checkbox" name="checkToDelete" class="checkToDelete" id="prod_@item.Product_Id" value="@item.Product_Id" />
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Name)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.View)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Price)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.SalePrice)
+                        </td>
+                        <td>
+                            @if (item.Status == true)
+                            {<p>Hiển thị</p>}
+                            @if (item.Status == false)
+                            {<p>Không hiển thị</p>}
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Priority)
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("ChangeActive", "Products"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <span class="switch switch-success switch-sm">
+                                    <label>
+                                        @Html.EditorFor(modelItem => item.IsActive, null, "IsActive", new { htmlAttributes = new { onChange = "this.form.submit()" } })
+                                        <span></span>
+                                    </label>
+                                </span>
+                                <input type="hidden" name="productId" value="@item.Product_Id" />
+                            }
+                        </td>
+                        <td>
+                            @using (Html.BeginForm("ChangeStatus", "Products"))
+                            {
+                                @Html.AntiForgeryToken()
+                                <span class="switch switch-success switch-sm">
+                                    <label>
+                                        @Html.EditorFor(modelItem => item.Status, null, "Status", new { htmlAttributes = new { onChange = "this.form.submit()" } })
+                                        <span></span>
+                                    </label>
+                                </span>
+                                <input type="hidden" name="productId" id="productId" value="@item.Product_Id" />
+                            }
+                        </td>
+                        <td>
+                            <a href="@Url.Action("Edit", "Products", new { id = item.Product_Id })">
+                                <i style="font-size: 30px; color:dodgerblue;" class="far fa-edit"></i>
+                            </a>
+                            <a href="@Url.Action("Details", "Products", new { id = item.Product_Id })">
+                                <i style="font-size: 30px; color:dodgerblue;" class="fas fa-info-circle"></i>
+                            </a>
+                            <a onclick="return confirm('Are sure wants to delete?');" href="@Url.Action("Delete", "Products", new { id = item.Product_Id })">
+                                <i style="font-size: 30px; color:slategrey;" class="fas fa-trash-alt"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+        <div class="datatable-pager datatable-paging-loaded container">
+            <ul class="datatable-pager-nav my-2 mb-sm-0">
+                <li><a title="First" class="datatable-pager-link datatable-pager-link-first datatable-pager-link-disabled" data-page="1" disabled="disabled"><i class="flaticon2-fast-back"></i></a></li>
+                <li><a title="Previous" class="datatable-pager-link datatable-pager-link-prev datatable-pager-link-disabled" data-page="1" disabled="disabled"><i class="flaticon2-back"></i></a></li>
+                <li style="display: none;"><input type="text" class="datatable-pager-input form-control" title="Page number"></li>
+                <li><a class="datatable-pager-link datatable-pager-link-number datatable-pager-link-active" data-page="1" title="1">1</a></li>
+                <li><a class="datatable-pager-link datatable-pager-link-number" data-page="2" title="2">2</a></li>
+                <li><a class="datatable-pager-link datatable-pager-link-number" data-page="3" title="3">3</a></li>
+                <li><a class="datatable-pager-link datatable-pager-link-number" data-page="4" title="4">4</a></li>
+                <li><a title="Next" class="datatable-pager-link datatable-pager-link-next" data-page="2"><i class="flaticon2-next"></i></a></li>
+                <li><a title="Last" class="datatable-pager-link datatable-pager-link-last" data-page="4"><i class="flaticon2-fast-next"></i></a></li>
+            </ul>
+            <div class="datatable-pager-info my-2 mb-sm-0">
+                <div class="dropdown bootstrap-select datatable-pager-size" style="width: 60px;">
+                    <select class="selectpicker datatable-pager-size" title="Select page size" data-width="60px" data-container="body" data-selected="100">
+                        <option value="5">5</option>
+                        <option value="10">10</option>
+                        <option value="20">20</option>
+                        <option value="30">30</option>
+                        <option value="50">50</option>
+                        <option value="100">100</option>
+                    </select>
+                    <div class="dropdown-menu ">
+                        <div class="inner show" role="listbox" id="bs-select-1" tabindex="-1">
+                            <ul class="dropdown-menu inner show" role="presentation"></ul>
+                        </div>
+                    </div>
+                </div>
+                <span class="datatable-pager-detail">Showing 1 - 100 of 350</span>
+            </div>
+        </div>
+    </div>
+    <div class="separator separator-dashed my-5"></div>
+</div>
+@section scripts {
+    <script>
+        var valuelist = [];
+        $('.checkToDelete').change(function () {
+            var tmplist = [];
+            $("input.checkToDelete[type=checkbox]").each(function () {
+                var dom_checked = $(this).attr('checked');
+                var checked = $(this).prop('checked');
+                if ((dom_checked === "checked" && checked === false) ||
+                    typeof dom_checked === "undefined" && checked === true) {
+                    tmplist.push(this.value);
+                }
+            });
+            valuelist = tmplist;
+            console.log(valuelist);
+        });
+
+        $('#deleteSelectAction').on('click', function () {
+            console.log(valuelist);
+            $('#deleteSelectAction').attr('href', function () {
+                return this.href.replace('_Parameter1', valuelist);
+            });
+        });
+
+        $("#checkAllToDelete").change(function () {
+            if ($(this).is(':checked')) {
+                $("input:checkbox[class=checkToDelete]").each(function () {
+                    //$(this).attr('checked', 'checked');
+                    if ($(this).is(':checked'));
+                    else $(this).click();
+                });
+            } else {
+                $("input:checkbox[class=checkToDelete]").each(function () {
+                    if ($(this).is(':checked')) $(this).click();
+                    //$(this).attr('checked', false);
+                });
+            }
+        });
+        function callChangefunc(val) {
+            // window.location.href = "/Controller/ActionMethod?value=" + val;
+
+            // document.location.href = '/Products/SearchByCategory?categoryId=' + this.options[this.selectedIndex].value;
+        }
+        $('select.group_search').on('change', function () {
+            var s1 = $('#categorySearch').val();
+            var s2 = $('#statusSearch').val();
+            var s3 = $('#searchKey').val();
+            document.location.href = '/Products/Search?categorySearch=' + s1 + "&statusSearch=" + s2 + "&key=" + s3;
+        });
+    </script>
+}

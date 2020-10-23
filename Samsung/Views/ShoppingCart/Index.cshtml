@@ -1,0 +1,375 @@
+﻿@using Samsung.Models;
+@model Samsung.Areas.Admin.Data.Order
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutCart.cshtml";
+    var cartSession = (List<ItemCart>)Session["cart"];
+    double totalPrice = 0;
+    double totalSalePrice = 0;
+    var info = System.Globalization.CultureInfo.GetCultureInfo("vi-VN");
+}
+@section styles {
+    <link id="samsung-widget-iframe-css" rel="stylesheet" type="text/css" href="https://theme.zdassets.com/theme_assets/2324229/b20686b3061c597684421b07aec30fe2c07ed1e9.css" media="all">
+
+}
+
+
+
+<div class="page-cartPage pageType-ContentPage">
+    <a tabindex="0" title="Content" id="skip-to-content"></a>
+    <div class="toko-main-container">
+        <div class="container mh-70">
+            <div class="cart-page-container v2 row clearfix ng-scope">
+                <div class="toko-left-content checkout-content checkout-left col-md-8">
+                    <div class="sticky-content">
+                        <div class="yCmsComponent yComponentWrapper tokoleftcontent-components">
+                            <div class="cart-heading">
+                                <h1 class="toko-title">Giỏ hàng</h1>
+                            </div>
+                        </div>
+                        <div class="yCmsComponent yComponentWrapper tokoleftcontent-components">
+                            <div class="global-alerts"></div>
+                        </div>
+                        <div id="paymentMessageComponent">
+                            <div class="yCmsComponent yComponentWrapper tokoleftcontent-components">
+                            </div>
+                        </div>
+                        <ul class="cart-product-list">
+                            @if (cartSession != null)
+                            {
+                                for (int i = 0; i < cartSession.Count; i++)
+                                {
+                                    var imgSrc = "#";
+                                    totalSalePrice += cartSession[i].Product.SalePrice * cartSession[i].Quantity;
+                                    totalPrice += cartSession[i].Product.Price * cartSession[i].Quantity;
+                                    if (cartSession[i].Product.ProductImage != null)
+                                    {
+                                        var base64 = Convert.ToBase64String(cartSession[i].Product.ProductImage);
+                                        imgSrc = String.Format("data:image/gif;base64,{0}", base64);
+                                    }
+                                    <li class="cart-row row ">
+                                        <div class="col-xs-12">
+                                            <div class="cart-item-thumb">
+                                                <a href="#">
+                                                    <img src="@imgSrc" alt="Galaxy Note20 " data-automation-id="toko-thumb-image">
+                                                </a>
+                                            </div>
+                                            <div class="cart-item-top">
+                                                <div class="cart-item-details">
+                                                    <a href="/vn/Common/Thi%E1%BA%BFt-b%E1%BB%8B-di-%C4%91%E1%BB%99ng/Thi%E1%BA%BFt-b%E1%BB%8B-di-%C4%91%E1%BB%99ng/product/p/SM-N980FZGGXXV" data-omni-price="23990000" data-omni-pviname="Galaxy Note20" data-omni-quantity="1" data-omni-base=";SM-N980F/DS" data-omni-variant="SM-N980FZGGXXV" data-omni-category="Mobile/Smartphone" data-omni-pimsubtype="Galaxy Note">
+                                                        <h3 class="name name-no-rtl" data-automation-id="name">@cartSession[i].Product.Name</h3>
+                                                    </a>
+                                                    <span class="size-color">Mystic Green, 256 GB</span>
+                                                    <div class="sku" data-automation-id="cart-item-sku">@cartSession[i].Product.Summary</div>
+                                                    <span class="cart-item-promo-container">
+                                                    </span>
+                                                    <div class="cart-item-preorder">
+                                                    </div>
+                                                </div>
+                                                <div class="cart-item-actions cart-item-col-4">
+                                                    <div class="cart-item-quantity product-quantity-details col-xs-6 col-md-6">
+                                                        <div class="cart-quantity-ui " data-index="0" data-read-only-multid-grid="false">
+                                                            <div id="createCartForm" class="cart-item-form" action="/vn/cart/update" method="post">
+
+                                                                @using (Html.BeginForm("AddToCart", "ShoppingCart"))
+                                                                {
+                                                                    @Html.AntiForgeryToken()
+                                                                    <input type="hidden" name="cartIndex" value="@i" />
+                                                                    <div class="qty-selector js-cart-qty-selector">
+                                                                        <span class="toko-group-element visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                                                                            <button type="button" class="btn-circle btn-default btn-number" data-type="minus" data-field="quantity[@i]">
+                                                                                <span class="icon-minus-quantity" data-maxlimitreached="false" style="background-image: none;">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                                                        <path d="M14 8H2" fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="2"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                                <i class="sr-only">Reduce Quantity</i>
+                                                                            </button>
+                                                                        </span>
+                                                                        <span class="toko-group-element">
+                                                                            <span class="toko-input-overlay"></span>
+                                                                            <input type="text" onChange="this.form.submit()" name="quantity[@i]" id="quantity[@i]" class="form-control input-number toko-control inputQuantity" value="@cartSession[i].Quantity" min="1" max="20">
+
+                                                                        </span>
+                                                                        <span class="toko-group-element">
+                                                                            <button type="button" class="btn-circle btn-default btn-number" data-type="plus" data-field="quantity[@i]">
+                                                                                <span class="icon-plus-quantity" style="background-image: none;">
+                                                                                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16">
+                                                                                        <path d="M8 2v12m6-6H2" fill="none" fill-rule="evenodd" stroke="#000" stroke-linecap="square" stroke-width="2"></path>
+                                                                                    </svg>
+                                                                                </span>
+                                                                                <i class="sr-only">Add Quantity</i>
+                                                                            </button>
+                                                                        </span>
+                                                                    </div>
+                                                                }
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="product-price-details col-xs-6 col-md-6">
+                                                        <div class="row">
+                                                            <span class="item-price" data-automation-id="item-price">
+                                                                @String.Format(info, "{0:c0}", cartSession[i].Product.SalePrice * cartSession[i].Quantity)<br>
+                                                                <span class="item-discount-price price-line-throught"> @String.Format(info, "{0:c0}", cartSession[i].Product.Price * cartSession[i].Quantity)</span>
+                                                            </span>
+                                                            <div class="reverse-mixed-vat">
+                                                            </div>
+                                                            <div class="clearfix"></div>
+                                                            <br>
+                                                            <a href="@Url.Action("RemoveProduct","ShoppingCart", new { cartIndex = @i})">
+                                                                <span class="remove-item  visible-sm-inline-block visible-md-inline-block visible-lg-inline-block">
+                                                                    XÓA
+                                                                </span>
+                                                            </a>
+                                                            <div class="visible-xs-inline-block col-xs-12 no-padding">
+                                                                <span class="text-right remove-item remove-entry-button visible-xs-inline-block pull-right" data-remove-entry="removeEntry_0" data-base-sku="SM-N980" data-variant-sku="SM-N980FZGGXXV" data-omni-base=";SM-N980F/DS" data-omni-variant="SM-N980FZGGXXV" data-omni-price="23990000" data-omni-pviname="Galaxy Note20" data-omni-category="Mobile/Smartphone" data-quantity="1" data-omni-pimsubtype="Galaxy Note" data-automation-id="removeEntry" tabindex="0">XÓA</span>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </li>
+                                }
+                            }
+                        </ul>
+                        <section>
+                            <div class="step-title active">
+                                <h2>Điền thông tin đặt hàng</h2>
+                            </div>
+                            <div class="step-body">
+                                @using (Html.BeginForm("Payment", "ShoppingCart", FormMethod.Post, new { id = "formThongtin" }))
+                                {
+                                    <div name="stepCustomerDetailsForm" class="toko-dynamic-form ng-valid-pattern ng-invalid ng-invalid-required ng-dirty ng-valid-parse" id="deliveryOptionsForm" novalidate="">
+                                        <div class="checkout-form-group row">
+                                            <div class="col-sm-12 col-md-7 newShippingAddress noShippingAddress">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 shipping-fields " data-bulk-store="false">
+                                                        <div class="form-group  ">
+                                                            <label class="control-label" for="CHECKOUT_SHIPPING_ADDRESS_vn-s_phoneNumber2_field">
+                                                                <span class="vn-s_phoneNumber2_field-label ">Học và tên</span>
+                                                            </label>
+                                                            <div class="form-input">
+                                                                @Html.EditorFor(model => model.FullName, new { htmlAttributes = new { @class = "form-control" } })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7 newShippingAddress noShippingAddress">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 shipping-fields " data-bulk-store="false">
+                                                        <div class="form-group  ">
+                                                            <label class="control-label" for="CHECKOUT_SHIPPING_ADDRESS_vn-s_phoneNumber2_field">
+                                                                <span class="vn-s_phoneNumber2_field-label ">Số điện thoại</span>
+                                                            </label>
+                                                            <div class="form-input">
+                                                                @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "form-control", type = "tel" } })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7 newShippingAddress noShippingAddress">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 shipping-fields " data-bulk-store="false">
+                                                        <div class="form-group  ">
+                                                            <label class="control-label" for="CHECKOUT_SHIPPING_ADDRESS_vn-s_phoneNumber2_field">
+                                                                <span class="vn-s_phoneNumber2_field-label ">Địa chỉ</span>
+                                                            </label>
+                                                            <div class="form-input">
+                                                                @Html.EditorFor(model => model.Address, new { htmlAttributes = new { @class = "form-control" } })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-12 col-md-7 newShippingAddress noShippingAddress">
+                                                <div class="row">
+                                                    <div class="col-sm-12 col-md-12 shipping-fields ">
+                                                        hidden
+                                                        <div class="form-group  ">
+                                                            <label class="control-label">
+                                                                <span class="vn-s_phoneNumber2_field-label ">Công ty</span>
+                                                            </label>
+                                                            <div class="form-input">
+
+                                                                @Html.EditorFor(model => model.Company, new { htmlAttributes = new { @class = "form-control" } })
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                }
+                            </div>
+                        </section>
+                    </div>
+                </div>
+                <div class="toko-right-content checkout-content checkout-right col-md-4 ">
+                    <div class="sticky-cart-summary">
+                        <div class="cart-summary">
+                            <h2 class="cart-summary-title hidden-xs hidden-sm">
+                                TÓM TẮT ĐƠN HÀNG
+                            </h2>
+                            <div class="yCmsComponent yComponentWrapper">
+                                <div class="row free-delivery">
+                                    <div class="col-xs-12">
+                                        <div class="free-delivery-text">
+                                            <img src="https://au2-images.shop.samsung.com/medias/free-shipping-64-px.png?context=bWFzdGVyfGltYWdlc3w4MDF8aW1hZ2UvcG5nfGltYWdlcy9oNjIvaGE0Lzg3OTYzMjE4MDg0MTQucG5nfGQ0MTQ3YzA4YWY2NzY5ZmQzYjZiZDk0ODJlZmVjYTZhM2ZjNGE5ZTNiY2YxNjAwZDQyYTAzMWY0Y2RlYzQyMjk" alt="">
+                                            <span class="summary-text">
+                                                Miễn phí giao hàng trên toàn quốc
+                                            </span>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="yCmsComponent yComponentWrapper">
+                                <div class="content">
+                                    <h5 class="free-delivery-text">Sau khi Conek lên vận đơn, Quý khách sẽ không thể hủy đơn hàng</h5>
+                                </div>
+                            </div>
+                            <div class="yCmsComponent yComponentWrapper">
+                                <!-- Verified that there's a pre-existing bug regarding the setting of showTax; created issue -->
+                                <div class="cart-totals">
+                                    <div class="promotion-labeling-area">
+                                        <div class="applied-promotion-or-voucher-label">
+                                        </div>
+                                    </div>
+                                    <hr class="discount-separator">
+                                    <div class="row detail total-savings">
+                                        <div class="col-xs-6">
+                                            Tổng chiết khấu:
+                                        </div>
+                                        <div class="col-xs-6 total-right-value">
+                                            @String.Format(info, "{0:c0}", totalPrice - totalSalePrice)
+                                        </div>
+                                    </div>
+                                    <hr class="discount-separator">
+                                    <div class="row detail total-savings">
+                                        <div class="col-xs-6">
+                                            Giá chưa giảm:
+                                        </div>
+                                        <div class="col-xs-6 total-right-value">
+                                            @String.Format(info, "{0:c0}", totalPrice)
+                                        </div>
+                                    </div>
+                                    <div class="row totals">
+                                        <div class="col-xs-6 grand-total">
+                                            <div id="basket-page-total">Tổng giá:</div>
+                                        </div>
+                                        <div class="col-xs-6 grand-total total-right-value">
+                                            @String.Format(info, "{0:c0}", totalSalePrice)
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="cart-actions row">
+                                    <div class="checkout-button col-sm-12">
+                                        <div class="promotion-text"></div>
+                                        <div class="finance-list-container">
+                                        </div>
+                                        <button class="btn btn-tertiary btn-block" id="thanhToan" type="submit" form="createCartForm">
+                                            Đặt Hàng
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+@section scripts {
+    <script src="owlcarousel/owl.carousel.min.js"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $(".owl-carousel").owlCarousel({
+                loop: true
+            });
+        });
+        //plugin bootstrap minus and plus
+        //http://jsfiddle.net/laelitenetwork/puJ6G/
+        $('.btn-number').click(function (e) {
+            e.preventDefault();
+
+            fieldName = $(this).attr('data-field');
+            type = $(this).attr('data-type');
+            var input = $("input[name='" + fieldName + "']");
+            var currentVal = parseInt(input.val());
+            if (!isNaN(currentVal)) {
+                if (type == 'minus') {
+
+                    if (currentVal > input.attr('min')) {
+                        input.val(currentVal - 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('min')) {
+                        $(this).attr('disabled', true);
+                    }
+
+                } else if (type == 'plus') {
+
+                    if (currentVal < input.attr('max')) {
+                        input.val(currentVal + 1).change();
+                    }
+                    if (parseInt(input.val()) == input.attr('max')) {
+                        $(this).attr('disabled', true);
+                    }
+
+                }
+            } else {
+                input.val(0);
+            }
+        });
+        $('.input-number').focusin(function () {
+            $(this).data('oldValue', $(this).val());
+        });
+        $('.input-number').change(function () {
+
+            minValue = parseInt($(this).attr('min'));
+            maxValue = parseInt($(this).attr('max'));
+            valueCurrent = parseInt($(this).val());
+
+            name = $(this).attr('name');
+            if (valueCurrent >= minValue) {
+                $(".btn-number[data-type='minus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the minimum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+            if (valueCurrent <= maxValue) {
+                $(".btn-number[data-type='plus'][data-field='" + name + "']").removeAttr('disabled')
+            } else {
+                alert('Sorry, the maximum value was reached');
+                $(this).val($(this).data('oldValue'));
+            }
+
+
+        });
+        $(".input-number").keydown(function (e) {
+            // Allow: backspace, delete, tab, escape, enter and .
+            if ($.inArray(e.keyCode, [46, 8, 9, 27, 13, 190]) !== -1 ||
+                // Allow: Ctrl+A
+                (e.keyCode == 65 && e.ctrlKey === true) ||
+                // Allow: home, end, left, right
+                (e.keyCode >= 35 && e.keyCode <= 39)) {
+                // let it happen, don't do anything
+                return;
+            }
+            // Ensure that it is a number and stop the keypress
+            if ((e.shiftKey || (e.keyCode < 48 || e.keyCode > 57)) && (e.keyCode < 96 || e.keyCode > 105)) {
+                e.preventDefault();
+            }
+        });
+
+        $(document).ready(function () {
+            $("#thanhToan").click(function () {
+                $("#formThongtin").submit();
+            });
+        });
+    </script>
+}

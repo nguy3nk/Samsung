@@ -1,0 +1,256 @@
+﻿.input-icons i {
+    position: absolute;
+}
+
+.input-icons {
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.icon {
+    padding: 10px;
+    min-width: 40px;
+}
+
+.input-field {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+}
+
+
+/*Start facebok css*/
+._jfc {
+    display: inline-block;
+    margin-left: 5px;
+    position: relative;
+}
+
+_jfc image:hover {
+    background-color: yellow;
+    cursor: pointer;
+}
+
+._50-0._50z_ {
+    background-image: url(https://www.facebook.com/rsrc.php/v3/yl/r/0Kcjj96mkXo.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: 0 -515px;
+}
+
+._jfe {
+    opacity: 0;
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    z-index: 1;
+}
+
+    ._jfc:hover ._jfe, ._jfc:focus ._jfe, ._jfe:focus {
+        opacity: 1
+    }
+
+        ._jfc:hover ._jfh, ._jfc:focus ._jfh, ._jfe:focus ~ ._jfi ._jfh, ._jfc ._jfh:focus, ._43p_ ._jfh {
+            opacity: 1
+        }
+
+._5upp {
+    background-color: transparent;
+    border: 0 none;
+    cursor: pointer;
+    font-size: 0 !important;
+    overflow: hidden;
+    padding: 0;
+    vertical-align: middle;
+}
+
+._50-0 {
+    height: 12px;
+    width: 12px;
+}
+
+._42ft {
+    cursor: pointer;
+    display: inline-block;
+    text-decoration: none;
+    white-space: nowrap;
+}
+
+._cwf {
+    left: 10px;
+}
+
+._jfh {
+    background-color: rgba(255, 255, 255, .5);
+    border: none;
+    border-radius: 50%;
+    bottom: 10px;
+    cursor: pointer;
+    height: 30px;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    width: 30px;
+    z-index: 1;
+}
+
+._4_z4 {
+    right: 10px;
+}
+
+._cwg {
+    background-image: url(https://www.facebook.com/rsrc.php/v3/yB/r/9K-VdnCy-JG.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: -166px -236px;
+    height: 22px;
+    margin: 5px auto;
+    width: 24px;
+}
+
+._4_z5 {
+    background-image: url(https://www.facebook.com/rsrc.php/v3/yB/r/9K-VdnCy-JG.png);
+    background-repeat: no-repeat;
+    background-size: auto;
+    background-position: -162px -261px;
+    height: 20px;
+    margin: 5px auto;
+    width: 20px;
+}
+
+._kkr {
+    display: inline-block;
+    margin-left: 5px;
+    vertical-align: top;
+}
+
+._6a {
+    display: inline-block;
+}
+
+._m {
+    position: relative;
+}
+
+._1cx1 .__9u {
+    margin-right: 12px;
+}
+
+.__9t {
+    background-image: url(https://www.facebook.com/rsrc.php/v3/yX/r/G68ofLqPucT.png);
+    background-position: 50%;
+    background-repeat: no-repeat;
+    background-size: 20px;
+}
+
+.__9u {
+    border: 2px dashed #dddfe2;
+    border-radius: 2px;
+    box-sizing: border-box;
+    display: inline-block;
+    height: 100px;
+    margin-right: 5px;
+    min-width: 100px;
+    position: relative;
+    width: auto;
+}
+
+._m ._3jk {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+
+._m ._n {
+    bottom: 0;
+    cursor: inherit;
+    font-size: 1000px !important;
+    height: 300px;
+    margin: 0;
+    opacity: 0;
+    padding: 0;
+    position: absolute;
+    right: 0;
+}
+
+._5f0v {
+    outline: none;
+}
+
+._4mvf {
+    display: inline-block;
+    width: 100%;
+}
+
+._6a {
+    display: inline-block;
+}
+
+._5g_r {
+    display: inline-block;
+}
+
+._m {
+    position: relative;
+}
+._m_1 {
+    background: #f5f6f7;
+    border-radius: 18px;
+    cursor: pointer;
+    position: relative;
+}
+._m ._3jk {
+    height: 100%;
+    overflow: hidden;
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 100%;
+}
+._m_1 ._4a0a {
+    height: 20px;
+    left: 9px;
+    position: absolute;
+    top: 6px;
+    width: 20px;
+}
+
+.sp_40vQqKQ08hh.sx_4bba29 {
+    background-position: 0 -1715px;
+}
+
+i.img {
+    -ms-high-contrast-adjust: none;
+}
+.sp_40vQqKQ08hh {
+    background-image: url(https://www.facebook.com/rsrc.php/v3/yY/r/I07TnVhvQs7.png);
+    background-size: auto;
+    background-repeat: no-repeat;
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+}
+._4ab3 ._m_1 ._2aha {
+    height: 32px;
+    line-height: 32px;
+}
+
+._m_1 ._2aha {
+    box-sizing: border-box;
+    color: #4b4f56;
+    display: inline-block;
+    font-weight: 600;
+    height: 34px;
+    line-height: 34px;
+    overflow: hidden;
+    padding: 0 15px 0 35px;
+    text-overflow: ellipsis;
+    vertical-align: middle;
+    white-space: nowrap;
+    width: 100%;
+}
+
+/*End facebok css*/

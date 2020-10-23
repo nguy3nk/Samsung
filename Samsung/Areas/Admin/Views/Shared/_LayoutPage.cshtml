@@ -1,0 +1,389 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Styles.Render("~/Content/myStyle")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700">
+    <script src="~/Content/fontawesome-free-5.15.1-web/js/697dee6f9c.js" crossorigin="anonymous"></script>
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/free-v4-shims.min.css" media="all" rel="stylesheet">
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/free-v4-font-face.min.css" media="all" rel="stylesheet">
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/free.min.css" media="all" rel="stylesheet">
+
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/fontawesome.css" media="all" rel="stylesheet">
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/brands.css" media="all" rel="stylesheet">
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/solid.css" media="all" rel="stylesheet">
+    <link href="~/Content/myStyle.css" rel="stylesheet" />
+    <!--end::Global Theme Styles-->
+</head>
+<!--end::Head-->
+<!--begin::Body-->
+<body id="kt_body" class="header-mobile-fixed subheader-enabled aside-enabled aside-fixed aside-secondary-enabled page-loading">
+    <!-- Google Tag Manager (noscript) -->
+    <!--begin::Main-->
+    <!--begin::Header Mobile-->
+    <div id="kt_header_mobile" class="header-mobile">
+        <!--begin::Logo-->
+        <!--end::Logo-->
+        <!--begin::Toolbar-->
+        <div class="d-flex align-items-center">
+            <button class="btn p-0 burger-icon burger-icon-left" id="kt_aside_mobile_toggle">
+                <span></span>
+            </button>
+        </div>
+        <!--end::Toolbar-->
+    </div>
+    <!--end::Header Mobile-->
+    <div class="d-flex flex-column flex-root">
+        <!--begin::Page-->
+        <div class="d-flex flex-row flex-column-fluid page">
+            <!--begin::Aside-->
+            <div class="aside aside-left d-flex aside-fixed" id="kt_aside">
+                <!--begin::Primary-->
+                <div class="aside-primary d-flex flex-column align-items-center flex-row-auto">
+                    <!--begin::Brand-->
+                    <div class="aside-brand d-flex flex-column align-items-center flex-column-auto py-5 py-lg-12">
+                        <!--begin::Logo-->
+                        <a href="@Url.Action("Index", "Home")">
+                            <img alt="Logo" src="/Content/demo3/dist/assets/media/logos/logo-letter-2.png" class="max-h-30px" />
+                        </a>
+                        <!--end::Logo-->
+                    </div>
+                    <!--end::Brand-->
+                    <!--begin::Nav Wrapper-->
+                    <div class="aside-nav d-flex flex-column align-items-center flex-column-fluid py-5 scroll scroll-pull">
+                        <!--begin::Nav-->
+                        <ul class="nav flex-column" role="tablist">
+                            <!--begin::Item-->
+                            <li class="nav-item mb-3" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Manager Features">
+
+                                <a href="#" class="nav-link btn btn-icon btn-clean btn-lg" id="kt_aside_toggle" data-toggle="tab" data-target="#kt_aside_tab_1" role="tab">
+                                    <span class="svg-icon svg-icon-xl">
+                                        <!--begin::Svg Icon | path:/metronic/theme/html/demo3/dist/assets/media/svg/icons/Layout/Layout-4-blocks.svg-->
+                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                <rect x="0" y="0" width="24" height="24" />
+                                                <rect fill="#000000" x="4" y="4" width="7" height="7" rx="1.5" />
+                                                <path d="M5.5,13 L9.5,13 C10.3284271,13 11,13.6715729 11,14.5 L11,18.5 C11,19.3284271 10.3284271,20 9.5,20 L5.5,20 C4.67157288,20 4,19.3284271 4,18.5 L4,14.5 C4,13.6715729 4.67157288,13 5.5,13 Z M14.5,4 L18.5,4 C19.3284271,4 20,4.67157288 20,5.5 L20,9.5 C20,10.3284271 19.3284271,11 18.5,11 L14.5,11 C13.6715729,11 13,10.3284271 13,9.5 L13,5.5 C13,4.67157288 13.6715729,4 14.5,4 Z M14.5,13 L18.5,13 C19.3284271,13 20,13.6715729 20,14.5 L20,18.5 C20,19.3284271 19.3284271,20 18.5,20 L14.5,20 C13.6715729,20 13,19.3284271 13,18.5 L13,14.5 C13,13.6715729 13.6715729,13 14.5,13 Z" fill="#000000" opacity="0.3" />
+                                            </g>
+                                        </svg>
+                                        <!--end::Svg Icon-->
+                                    </span>
+                                </a>
+
+                            </li>
+                            <!--end::Item-->
+
+                        </ul>
+                        <!--end::Nav-->
+                    </div>
+                    <!--end::Nav Wrapper-->
+                    <!--begin::Footer-->
+                    <div class="aside-footer d-flex flex-column align-items-center flex-column-auto py-4 py-lg-10">
+                        <!--begin::Aside Toggle-->
+                        <span class="aside-toggle btn btn-icon btn-primary btn-hover-primary shadow-sm" id="kt_aside_toggle" data-toggle="tooltip" data-placement="right" data-container="body" data-boundary="window" title="Toggle Aside">
+                            <i class="ki ki-bold-arrow-back icon-sm"></i>
+                        </span>
+                        <!--end::Aside Toggle-->
+                    </div>
+                    <!--end::Footer-->
+                </div>
+                <!--end::Primary-->
+                <!--begin::Secondary-->
+                <div class="aside-secondary d-flex flex-row-fluid">
+                    <!--begin::Workspace-->
+                    <div class="aside-workspace scroll scroll-push my-2">
+                        <!--begin::Tab Content-->
+                        <div class="tab-content">
+                            <!--begin::Tab Pane-->  
+                            <div class="tab-pane p-3 px-lg-7 py-lg-5 fade in show active" id="kt_aside_tab_1">
+                                <!--begin::Form-->
+                                <!--end::Form-->
+                                <h3 class="p-2 p-lg-3 my-1 my-lg-3">Quản lý</h3>
+                                <!--begin::List-->
+                                <div class="list list-hover">
+                                    <!--begin::Item-->
+                                    <a href="@Url.Action("Index", "Categories", new{ Area = "Admin"})">
+                                        <div class="list-item hoverable p-2 p-lg-3 mb-2">
+                                            <div class="d-flex align-items-center">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40 symbol-light mr-4">
+                                                    <span class="symbol-label bg-hover-white">
+                                                        <img src="https://preview.keenthemes.com/metronic/theme/html/demo3/dist/assets/media/svg/misc/008-infography.svg" class="h-50 align-self-center" />
+                                                    </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Text-->
+                                                <div class="d-flex flex-column flex-grow-1 mr-2">
+                                                    <span class="text-dark-75 font-size-h6 mb-0">Danh mục</span>
+                                                    <a href="#" class="text-muted text-hover-primary font-weight-bold">By James</a>
+                                                </div>
+                                                <!--begin::End-->
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!--end::Item-->
+                                    <!--begin::Item-->
+                                    <a href="@Url.Action("Index", "Products", new{ Area = "Admin"})">
+                                        <div class="list-item hoverable p-2 p-lg-3 mb-2">
+                                            <div class="d-flex align-items-center">
+                                                <!--begin::Symbol-->
+                                                <div class="symbol symbol-40 symbol-light mr-4">
+                                                    <span class="symbol-label bg-hover-white">
+                                                        <img src="https://preview.keenthemes.com/metronic/theme/html/demo3/dist/assets/media/svg/misc/006-plurk.svg" class="h-50 align-self-center" />
+                                                    </span>
+                                                </div>
+                                                <!--end::Symbol-->
+                                                <!--begin::Text-->
+                                                <div class="d-flex flex-column flex-grow-1 mr-2">
+                                                    <span class="text-dark-75 font-size-h6 mb-0">Sản phẩm</span>
+                                                    <a href="#" class="text-muted text-hover-primary font-weight-bold">By James</a>
+                                                </div>
+                                                <!--begin::End-->
+                                            </div>
+                                        </div>
+                                    </a>
+                                    <!--end::Item-->
+                                </div>
+                                <!--end::List-->
+                            </div>
+                            <!--end::Tab Pane-->
+                        </div>
+                        <!--end::Tab Content-->
+                    </div>
+                    <!--end::Workspace-->
+                </div>
+                <!--end::Secondary-->
+            </div>
+            <!--end::Aside-->
+            <!--begin::Wrapper-->
+            <div class="d-flex flex-column flex-row-fluid wrapper" id="kt_wrapper">
+                <!--begin::Content-->
+                <div class="content d-flex flex-column flex-column-fluid" id="kt_content">
+                    <!--begin::Subheader-->
+                    <div class="subheader py-2 py-lg-4 subheader-transparent" id="kt_subheader">
+                        <div class="container d-flex align-items-center justify-content-between flex-wrap flex-sm-nowrap">
+                            <!--begin::Details-->
+                            <div class="d-flex align-items-center flex-wrap mr-2">
+                                <!--begin::Title-->
+                                <h5 class="text-dark font-weight-bold mt-2 mb-2 mr-5">Users</h5>
+                                <!--end::Title-->
+                                <!--begin::Separator-->
+                                <div class="subheader-separator subheader-separator-ver mt-2 mb-2 mr-5 bg-gray-200"></div>
+                                <!--end::Separator-->
+                                <!--begin::Search Form-->
+                                <div class="d-flex align-items-center" id="kt_subheader_search">
+                                    <span class="text-dark-50 font-weight-bold" id="kt_subheader_total">450 Total</span>
+                                    <form class="ml-5">
+                                        <div class="input-group input-group-sm input-group-solid" style="max-width: 175px">
+                                            <input type="text" class="form-control" id="kt_subheader_search_form" placeholder="Search..." />
+                                            <div class="input-group-append">
+                                                <span class="input-group-text">
+                                                    <span class="svg-icon">
+                                                        <!--begin::Svg Icon | path:/metronic/theme/html/demo3/dist/assets/media/svg/icons/General/Search.svg-->
+                                                        <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                            <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                                <rect x="0" y="0" width="24" height="24" />
+                                                                <path d="M14.2928932,16.7071068 C13.9023689,16.3165825 13.9023689,15.6834175 14.2928932,15.2928932 C14.6834175,14.9023689 15.3165825,14.9023689 15.7071068,15.2928932 L19.7071068,19.2928932 C20.0976311,19.6834175 20.0976311,20.3165825 19.7071068,20.7071068 C19.3165825,21.0976311 18.6834175,21.0976311 18.2928932,20.7071068 L14.2928932,16.7071068 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                                <path d="M11,16 C13.7614237,16 16,13.7614237 16,11 C16,8.23857625 13.7614237,6 11,6 C8.23857625,6 6,8.23857625 6,11 C6,13.7614237 8.23857625,16 11,16 Z M11,18 C7.13400675,18 4,14.8659932 4,11 C4,7.13400675 7.13400675,4 11,4 C14.8659932,4 18,7.13400675 18,11 C18,14.8659932 14.8659932,18 11,18 Z" fill="#000000" fill-rule="nonzero" />
+                                                            </g>
+                                                        </svg>
+                                                        <!--end::Svg Icon-->
+                                                    </span>
+                                                    <!--<i class="flaticon2-search-1 icon-sm"></i>-->
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                                <!--end::Search Form-->
+                                <!--begin::Group Actions-->
+                                <div class="d-flex- align-items-center flex-wrap mr-2 d-none" id="kt_subheader_group_actions">
+                                    <div class="text-dark-50 font-weight-bold">
+                                        <span id="kt_subheader_group_selected_rows">23</span>Selected:
+                                    </div>
+                                    <div class="d-flex ml-6">
+                                        <div class="dropdown mr-2" id="kt_subheader_group_actions_status_change">
+                                            <button type="button" class="btn btn-light-primary font-weight-bolder btn-sm dropdown-toggle" data-toggle="dropdown">Update Status</button>
+                                            <div class="dropdown-menu p-0 m-0 dropdown-menu-sm">
+                                                <ul class="navi navi-hover pt-3 pb-4">
+                                                    <li class="navi-header font-weight-bolder text-uppercase text-primary font-size-lg pb-0">Change status to:</li>
+                                                    <li class="navi-item">
+                                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="1">
+                                                            <span class="navi-text">
+                                                                <span class="label label-light-success label-inline font-weight-bold">Approved</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="navi-item">
+                                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="2">
+                                                            <span class="navi-text">
+                                                                <span class="label label-light-danger label-inline font-weight-bold">Rejected</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="navi-item">
+                                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="3">
+                                                            <span class="navi-text">
+                                                                <span class="label label-light-warning label-inline font-weight-bold">Pending</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                    <li class="navi-item">
+                                                        <a href="#" class="navi-link" data-toggle="status-change" data-status="4">
+                                                            <span class="navi-text">
+                                                                <span class="label label-light-info label-inline font-weight-bold">On Hold</span>
+                                                            </span>
+                                                        </a>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <button class="btn btn-light-success font-weight-bolder btn-sm mr-2" id="kt_subheader_group_actions_fetch" data-toggle="modal" data-target="#kt_datatable_records_fetch_modal">Fetch Selected</button>
+                                        <button class="btn btn-light-danger font-weight-bolder btn-sm mr-2" id="kt_subheader_group_actions_delete_all">Delete All</button>
+                                    </div>
+                                </div>
+                                <!--end::Group Actions-->
+                            </div>
+                            <!--end::Details-->
+                            <!--begin::Toolbar-->
+                            <div class="d-flex align-items-center">
+                                <!--begin::Button-->
+                                <a href="../../../.html" class=""></a>
+                                <!--end::Button-->
+                                <!--begin::Button-->
+                                <a href="add-user.html" class="btn btn-light-primary font-weight-bold btn-sm px-4 font-size-base ml-2">Add User</a>
+                                <!--end::Button-->
+                                <!--begin::Dropdown-->
+                                <div class="dropdown dropdown-inline ml-2" data-toggle="tooltip" title="Quick actions" data-placement="left">
+                                    <a href="#" class="btn btn-icon" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <span class="svg-icon svg-icon-success svg-icon-2x">
+                                            <!--begin::Svg Icon | path:/metronic/theme/html/demo3/dist/assets/media/svg/icons/Files/File-plus.svg-->
+                                            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
+                                                <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                                                    <polygon points="0 0 24 0 24 24 0 24" />
+                                                    <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3" />
+                                                    <path d="M11,14 L9,14 C8.44771525,14 8,13.5522847 8,13 C8,12.4477153 8.44771525,12 9,12 L11,12 L11,10 C11,9.44771525 11.4477153,9 12,9 C12.5522847,9 13,9.44771525 13,10 L13,12 L15,12 C15.5522847,12 16,12.4477153 16,13 C16,13.5522847 15.5522847,14 15,14 L13,14 L13,16 C13,16.5522847 12.5522847,17 12,17 C11.4477153,17 11,16.5522847 11,16 L11,14 Z" fill="#000000" />
+                                                </g>
+                                            </svg>
+                                            <!--end::Svg Icon-->
+                                        </span>
+                                    </a>
+                                    <div class="dropdown-menu p-0 m-0 dropdown-menu-md dropdown-menu-right">
+                                        <!--begin::Naviigation-->
+                                        <ul class="navi">
+                                            <li class="navi-header font-weight-bold py-5">
+                                                <span class="font-size-lg">Add New:</span>
+                                                <i class="flaticon2-information icon-md text-muted" data-toggle="tooltip" data-placement="right" title="Click to learn more..."></i>
+                                            </li>
+                                            <li class="navi-separator mb-3 opacity-70"></li>
+                                            <li class="navi-item">
+                                                <a href="#" class="navi-link">
+                                                    <span class="navi-icon">
+                                                        <i class="flaticon2-shopping-cart-1"></i>
+                                                    </span>
+                                                    <span class="navi-text">Order</span>
+                                                </a>
+                                            </li>
+                                            <li class="navi-item">
+                                                <a href="#" class="navi-link">
+                                                    <span class="navi-icon">
+                                                        <i class="navi-icon flaticon2-calendar-8"></i>
+                                                    </span>
+                                                    <span class="navi-text">Members</span>
+                                                    <span class="navi-label">
+                                                        <span class="label label-light-danger label-rounded font-weight-bold">3</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="navi-item">
+                                                <a href="#" class="navi-link">
+                                                    <span class="navi-icon">
+                                                        <i class="navi-icon flaticon2-telegram-logo"></i>
+                                                    </span>
+                                                    <span class="navi-text">Project</span>
+                                                </a>
+                                            </li>
+                                            <li class="navi-item">
+                                                <a href="#" class="navi-link">
+                                                    <span class="navi-icon">
+                                                        <i class="navi-icon flaticon2-new-email"></i>
+                                                    </span>
+                                                    <span class="navi-text">Record</span>
+                                                    <span class="navi-label">
+                                                        <span class="label label-light-success label-rounded font-weight-bold">5</span>
+                                                    </span>
+                                                </a>
+                                            </li>
+                                            <li class="navi-separator mt-3 opacity-70"></li>
+                                            <li class="navi-footer pt-5 pb-4">
+                                                <a class="btn btn-light-primary font-weight-bolder btn-sm" href="#">More options</a>
+                                                <a class="btn btn-clean font-weight-bold btn-sm d-none" href="#" data-toggle="tooltip" data-placement="right" title="Click to learn more...">Learn more</a>
+                                            </li>
+                                        </ul>
+                                        <!--end::Naviigation-->
+                                    </div>
+                                </div>
+                                <!--end::Dropdown-->
+                            </div>
+                            <!--end::Toolbar-->
+                        </div>
+                    </div>
+                    <!--end::Subheader-->
+                    <!--begin::Entry-->
+
+                    <div class=" flex-column-fluid">
+                        <!--begin::Container-->
+                        <div class="container-fluid p-9">
+                            <div class="">
+                                @RenderBody()
+                            </div>
+                        </div>
+                        <!--end::Container-->
+                        <!--end::Entry-->
+                    </div>
+                    <!--end::Content-->
+                    <!--begin::Footer-->
+                    <!--doc: add "bg-white" class to have footer with solod background color-->
+                    <div class="footer py-4 d-flex flex-lg-column" id="kt_footer">
+                        <!--begin::Container-->
+                        <div class="container d-flex flex-column flex-md-row align-items-center justify-content-between">
+                            <!--begin::Copyright-->
+                            <div class="text-dark order-2 order-md-1">
+                                <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+                                <span class="text-muted font-weight-bold mr-2">2020©</span>
+                                <a href="http://keenthemes.com/metronic" target="_blank" class="text-dark-75 text-hover-primary">Keenthemes</a>
+                            </div>
+                            <!--end::Copyright-->
+                            <!--begin::Nav-->
+                            <div class="nav nav-dark order-1 order-md-2">
+                                <a href="http://keenthemes.com/metronic" target="_blank" class="nav-link pr-3 pl-0">About</a>
+                                <a href="http://keenthemes.com/metronic" target="_blank" class="nav-link px-3">Team</a>
+                                <a href="http://keenthemes.com/metronic" target="_blank" class="nav-link pl-3 pr-0">Contact</a>
+                            </div>
+                            <!--end::Nav-->
+                        </div>
+                        <!--end::Container-->
+                    </div>
+                    <!--end::Footer-->
+                </div>
+                <!--end::Wrapper-->
+            </div>
+            <!--end::Page-->
+        </div>
+    </div>
+    <!--end::Main-->
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="~/Scripts/select2.full.js"></script>
+    @RenderSection("scripts", required: false)
+    <!--begin::Global Theme Bundle(used by all pages)-->
+    @Scripts.Render("~/bundles/myJs")
+    <!--end::Global Theme Bundle-->
+    <!--end::Page Scripts-->
+</body>
+<!--end::Body-->
+</html>

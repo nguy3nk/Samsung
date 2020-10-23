@@ -1,0 +1,745 @@
+﻿@using Samsung.Models
+@{
+    var cartSession = (List<ItemCart>)Session["cart"];
+}
+
+<!DOCTYPE html>
+<html lang="vi" data-site="vn" data-login="false" style="--vh:7.22px;">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title> Samsung</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    @Styles.Render("~/Content/samsung")
+
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/fontawesome.css" media="all" rel="stylesheet">
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/brands.css" media="all" rel="stylesheet">
+    <link href="~/Content/fontawesome-free-5.15.1-web/css/solid.css" media="all" rel="stylesheet">
+    @RenderSection("styles", required: false)
+
+</head>
+
+<body data-ng-app="shop"
+      class="page-thu-tu-vui-ve pageType-ContentPage template-pages-layout-standardContentPage pageLabel--thu-tu-vui-ve theme- language-vi cookie-warning-geo ng-scope break1410"
+      data-breakpoint="{0:&#39;smallscreen&#39;, 480:&#39;break480&#39;, 640:&#39;break640&#39;, 768:&#39;break768&#39;, 1024:&#39;break1024&#39;, 1280:&#39;break1280&#39;, 1410:&#39;break1410&#39;}">
+    <header class="gnbV2 main-header main-header-md gb-gnb-new ng-scope" "
+            data-focus-trap="">
+        <a tabindex="0" title="Navigation" id="skiptonavigation"></a>
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="samsung-header-wrapper">
+                    <div class="site-logo js-site-logo clearfix hidden-sm hidden-xs col-md-2">
+                        <div class="yCmsComponent col-xs-12 no-space yComponentWrapper">
+                            <div class="simple-banner-component simple-banner">
+                                <a href="#">
+                                    <img alt="" src="~/Content/Image/samsung-logo.jpg">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="samsung-nav-wrapper col-xs-12 col-sm-12 col-md-12 col-lg-12" id="gnb">
+                        <nav class="main-navigation js-enquire-offcanvas-navigation">
+                            <ul class="sticky-nav-top hidden-lg hidden-md hidden-sm hidden-xs js-sticky-user-group"> </ul>
+                            <ul data-trigger="#signedInUserOptionsToggle"
+                                class="nav nav-pills js-userAccount-Links hidden-lg hidden-md hidden-sm hidden-xs js-nav-collapse-body offcanvasGroup1 mobileNavLinks collapse in">
+                            </ul>
+                            <ul class="mobile-nav-list nav nav-pills js-offcanvas-links js-account-service-mobile" is-mobile="false">
+                                <li class="nav-pills-main hidden-md hidden-lg">
+                                    <div class="gnbv2navcollection">
+                                        <button type="button"
+                                                class="js-toggle-sm-navigation menu-close menu-close-mobile-nav icon-close-x"
+                                                style="visibility: visible;">
+                                            <span class="sr-only">ĐÓNG</span>
+                                        </button>
+                                    </div>
+                                    <div class="gnbv2navcollection"> <span>Menu</span> </div>
+                                </li>
+                                <li class=" auto js-main-tagging has-sub js-enquire-has-sub icon-svg-arw-right" aria-expanded="false">
+                                    <a href="@Url.Action("Index","Home", new { categoryName = "Di động"})" target="_self" class=" " data-tracking="" data-main=""
+                                       data-omni="mobile" data-omni-type="" data-omni-data=""> Di Động</a>
+                                </li>
+                                <li class=" auto js-main-tagging has-sub js-enquire-has-sub icon-svg-arw-right" aria-expanded="false">
+                                    <a href="@Url.Action("Index","Home", new { categoryName = "Sạc và cáp"})" target="_self" class=" " data-tracking="" data-main=""
+                                       data-omni="tv and av" data-omni-type="" data-omni-data=""> Sạc và cáp</a>
+                                </li>
+                                <li class=" auto js-main-tagging has-sub js-enquire-has-sub icon-svg-arw-right" aria-expanded="false">
+                                    <a href="@Url.Action("Index","Home", new { categoryName = "tai nghe"})" target="_self" class=" " data-tracking=""
+                                       data-main="" data-omni="home appliances" data-omni-type="" data-omni-data="">Tai nghe</a>
+
+                                </li>
+                                <li class=" auto js-main-tagging has-sub js-enquire-has-sub icon-svg-arw-right" aria-expanded="false">
+                                    <a href="@Url.Action("Index","Home", new { categoryName = "Ốp lưng"})" target="_self" class=" " data-tracking="" data-main="" data-omni="it"
+                                       data-omni-type="" data-omni-data="">Ốp lưng</a>
+
+                                </li>
+                                <li class=" auto js-main-tagging has-sub js-enquire-has-sub icon-svg-arw-right" aria-expanded="false">
+                                    <a href="@Url.Action("Index","Home", new { categoryName = "Bao da"})" target="_self" class=" " data-tracking="" data-main=""
+                                       data-omni="&lt;missing&gt;" data-omni-type="" data-omni-data="">Bao da</a>
+
+                                </li>
+
+                                <li class=" auto js-main-tagging has-sub js-enquire-has-sub icon-svg-arw-right" aria-expanded="false">
+                                    <a href="@Url.Action("Index","Home", new { categoryName = "Dây đeo"})" target="_self" class=" " data-tracking="" data-main=""
+                                       data-omni="&lt;missing&gt;" data-omni-type="" data-omni-data="">Dây đeo</a>
+
+                                </li>
+                                <li class="js-right-menu-mobile divider-nav-mobile"></li>
+                                <li class="visible-xs visible-sm">
+                                    <ul class="user-menu">
+                                        <li class="user-menu-nav icon-sign-in">
+                                            <a data-omni="login" data-tracking="log in" data-user="anonymous"
+                                               href="#/thu-tu-vui-ve?cid=vn_paid_social_facebook_im-multiple_no-phase_im-d2c-happywednesday-salescampaign-01sep_other_gen-singlead-interestss-la-1200x627-2020-09-01_behavioural-affinity&amp;utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=IM-D2C-HAPPYWEDNESDAY-SALESCAMPAIGN-01sep&amp;utm_term=c_baff_GEN-SINGLEAD-INTERESTSS&amp;utm_content=GEN-SINGLEAD-INTERESTSS_1200x627#"
+                                               class="s-depth3-link js-login-redirect account-nav-icon-link js-account-nav-icon-link log-out-block"
+                                               title="Đăng nhập / Sign-Up">
+                                                Đăng nhập / Sign-Up
+                                            </a>
+                                        </li>
+                                        <li class="user-menu-nav icon-contact-us">
+                                            <a href="#/text.url.contact.us" class="account-nav-icon-link"
+                                               title="Contact Us">
+                                                Contact Us
+                                            </a>
+                                        </li>
+                                        <li class="user-menu-nav icon-shop-faq">
+                                            <a href="#/faq" class="account-nav-icon-link" title="Shop FAQ">
+                                                Shop FAQ
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                    <div class="cart-menu-wrapper right-menu-wrapper clearfix hidden-sm hidden-xs col-md-2">
+                        <!-- ngIf: !isMobile -->
+                        <div class="ng-scope">
+                            <div class="yCmsContentSlot toko-header-user-menus miniCartSlot">
+                                <div class="account-nav-icon"></div>
+                                <div class="account-login-block check-ie gnb-utility">
+                                    <a data-omni="login" data-tracking="log in"
+                                       data-user="anonymous"
+                                       href="#/thu-tu-vui-ve?cid=vn_paid_social_facebook_im-multiple_no-phase_im-d2c-happywednesday-salescampaign-01sep_other_gen-singlead-interestss-la-1200x627-2020-09-01_behavioural-affinity&amp;utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=IM-D2C-HAPPYWEDNESDAY-SALESCAMPAIGN-01sep&amp;utm_term=c_baff_GEN-SINGLEAD-INTERESTSS&amp;utm_content=GEN-SINGLEAD-INTERESTSS_1200x627#"
+                                       class="js-account-menu-popover account-menu-popover" title="ĐĂNG NHẬP"
+                                       data-dropdown="js-account-menu">
+                                        <span class="icon-gnb-login account-login no-rtl"></span> <span class="sr-only">Tài khoản của tôi</span>
+                                    </a>
+                                    <ul class="account-menu js-account-menu">
+                                        <li class="account-menu-item sign-in-account">
+                                            <a data-omni="login" data-tracking="log in"
+                                               data-user="anonymous"
+                                               href="#/thu-tu-vui-ve?cid=vn_paid_social_facebook_im-multiple_no-phase_im-d2c-happywednesday-salescampaign-01sep_other_gen-singlead-interestss-la-1200x627-2020-09-01_behavioural-affinity&amp;utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=IM-D2C-HAPPYWEDNESDAY-SALESCAMPAIGN-01sep&amp;utm_term=c_baff_GEN-SINGLEAD-INTERESTSS&amp;utm_content=GEN-SINGLEAD-INTERESTSS_1200x627#"
+                                               class="s-depth3-link js-login-redirect account-nav-icon-link js-account-nav-icon-link log-out-block"
+                                               title="Đăng nhập"> Đăng nhập</a>
+                                        </li>
+                                        <li class="account-menu-item sign-up-account">
+                                            <a href="#/thu-tu-vui-ve?cid=vn_paid_social_facebook_im-multiple_no-phase_im-d2c-happywednesday-salescampaign-01sep_other_gen-singlead-interestss-la-1200x627-2020-09-01_behavioural-affinity&amp;utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=IM-D2C-HAPPYWEDNESDAY-SALESCAMPAIGN-01sep&amp;utm_term=c_baff_GEN-SINGLEAD-INTERESTSS&amp;utm_content=GEN-SINGLEAD-INTERESTSS_1200x627#"
+                                               class="account-nav-icon-link js-modal-sso-not-a-member" data-omni="sign-up"> Sign-Up</a>
+                                        </li>
+                                        <li class="account-menu-item track-order hidden">
+                                            <a href="#/track-order"
+                                               class="js-track-order-control"> Track Order</a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="site-search gnb-utility">
+                                    <div class="ui-front samsung-search-wrapper">
+                                        <form data-gnb-search="" name="search_form_SearchBox" method="get"
+                                              action="#/search/" data-ng-submit="submitForm()"
+                                              class="ng-pristine ng-valid ng-valid-maxlength">
+                                            <div class="search-popup-block">
+                                                <input class="search-input-area js-site-search ng-pristine ng-untouched ng-valid ng-binding ng-empty ng-valid-maxlength"
+                                                       data-ng-model="someVal" data-ng-bind-html="someVal" data-ng-change="textChanged()"
+                                                       data-ng-trim="false" title="Tìm kiếm" name="q" data-countrytag="vn"
+                                                       placeholder="Galaxy Note20" type="text" maxlength="100" richsearch="on"> <button class="input-search-submit-button icon-return s-depth3-link js-input-search-submit-button"
+                                                                                                                                        value=" " type="submit" data-omni="search">
+                                                    <span class="sr-only">Tìm kiếm</span>
+                                                </button>
+                                                <button data-ng-click="closeSearch()" type="button"
+                                                        class="js-close-search close-search icon-close-x">
+                                                    <span class="sr-only">ĐÓNG</span>
+                                                </button>
+                                                <div class="search-no-result ng-hide" data-ng-hide="common.suggestion || !someVal">
+                                                    Không có
+                                                    gợi ý
+                                                </div>
+                                                <div class="search-history ng-hide" data-ng-hide="!searchHistory || someVal">
+                                                    <div class="search-history-title">Lịch sử tìm kiếm</div> <button data-ng-click="clearHistory()" type="button" class="search-history-clear">
+                                                        Xóa lịch
+                                                        sử
+                                                    </button>
+                                                    <ul>
+                                                        <!-- ngRepeat: item in searchHistory | orderBy:'$index':true | limitTo: 4 track by $index -->
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <a href="#/thu-tu-vui-ve?cid=vn_paid_social_facebook_im-multiple_no-phase_im-d2c-happywednesday-salescampaign-01sep_other_gen-singlead-interestss-la-1200x627-2020-09-01_behavioural-affinity&amp;utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=IM-D2C-HAPPYWEDNESDAY-SALESCAMPAIGN-01sep&amp;utm_term=c_baff_GEN-SINGLEAD-INTERESTSS&amp;utm_content=GEN-SINGLEAD-INTERESTSS_1200x627#"
+                                               class="search-submit-button js-search-submit-button icon-gnb-search no-rtl" tabindex="0"
+                                               data-tracking="search" data-omni="search">
+                                                <span class="gb-gnb__search-arrow"></span><span class="sr-only"> Tìm kiếm</span>
+                                            </a>
+                                        </form>
+                                    </div>
+                                </div>
+                                <div class="nav-cart gnb-utility">
+                                    <a href="@Url.Action("Index","ShoppingCart")" class="mini-cart-link js-mini-cart-link " title="Giỏ hàng">
+                                        <div class="icon-gnb-cart mini-cart-icon no-rt">
+
+                                            <div class="minicart_color js-mini-cart-count cart-line-3" data-mini-cart-count="0">
+                                                0
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div><!-- end ngIf: !isMobile -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="nav-middle hidden-lg hidden-md">
+                <div class="sm-navigation mobile-navigation">
+                    <div class="container">
+                        <div class="flex-center space-between">
+                            <div class="branding-mobile hidden-md hidden-lg">
+                                <div class="container">
+                                    <div class="js-mobile-logo mobile-logo">
+                                        <div class="simple-banner-component simple-banner">
+                                            <a href="#">
+                                                <img alt=""
+                                                     src="~/Content/Image/samsung-logo.jpg">
+                                            </a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="search-mobile auto hidden-md hidden-lg col-sm-2">
+                                <div class="yCmsContentSlot miniCartSlot">
+                                    <!-- ngIf: isMobile -->
+                                </div>
+                            </div>
+                            <div class="search-mobile auto hidden-md hidden-lg col-sm-2">
+                                <div class="right-menu-wrapper">
+                                    <div class="site-search">
+                                        <div class="site-search gnb-utility">
+                                            <div class="ui-front samsung-search-wrapper">
+                                                <form data-gnb-search="" name="search_form_SearchBox" method="get"
+                                                      action="#/search/" data-ng-submit="submitForm()"
+                                                      class="ng-pristine ng-valid ng-valid-maxlength">
+                                                    <div class="search-popup-block">
+                                                        <input class="search-input-area js-site-search ng-pristine ng-untouched ng-valid ng-binding ng-empty ng-valid-maxlength"
+                                                               data-ng-model="someVal" data-ng-bind-html="someVal" data-ng-change="textChanged()"
+                                                               data-ng-trim="false" title="Tìm kiếm" name="q" data-countrytag="vn"
+                                                               placeholder="Galaxy Note20" type="text" maxlength="100" richsearch="on"> <button class="input-search-submit-button icon-return s-depth3-link js-input-search-submit-button"
+                                                                                                                                                value=" " type="submit" data-omni="search">
+                                                            <span class="sr-only">Tìm kiếm</span>
+                                                        </button> <button data-ng-click="closeSearch()" type="button"
+                                                                          class="js-close-search close-search icon-close-x">
+                                                            <span class="sr-only">ĐÓNG</span>
+                                                        </button>
+                                                        <div class="search-no-result ng-hide" data-ng-hide="common.suggestion || !someVal">
+                                                            Không có
+                                                            gợi ý
+                                                        </div>
+                                                        <div class="search-history ng-hide" data-ng-hide="!searchHistory || someVal">
+                                                            <div class="search-history-title">Lịch sử tìm kiếm</div> <button data-ng-click="clearHistory()" type="button" class="search-history-clear">
+                                                                Xóa lịch
+                                                                sử
+                                                            </button>
+                                                            <ul>
+                                                                <!-- ngRepeat: item in searchHistory | orderBy:'$index':true | limitTo: 4 track by $index -->
+                                                            </ul>
+                                                        </div>
+                                                    </div>
+
+                                                </form>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="visible-xs visible-sm mobile-menu col-sm-2">
+                                <a class="burger-container"
+                                   href="#/thu-tu-vui-ve?cid=vn_paid_social_facebook_im-multiple_no-phase_im-d2c-happywednesday-salescampaign-01sep_other_gen-singlead-interestss-la-1200x627-2020-09-01_behavioural-affinity&amp;utm_source=facebook&amp;utm_medium=social&amp;utm_campaign=IM-D2C-HAPPYWEDNESDAY-SALESCAMPAIGN-01sep&amp;utm_term=c_baff_GEN-SINGLEAD-INTERESTSS&amp;utm_content=GEN-SINGLEAD-INTERESTSS_1200x627#gnb"
+                                   tabindex="3" title="open the menu" style="visibility: visible;">
+                                    <div class="gnb-menu">
+                                        <i class="burger-line"></i> <i class="burger-line"></i> <i class="burger-line"></i>
+                                        <div class="sr-only"> Menu</div>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </header>
+    <div class="yCmsContentSlot">
+        <div class="breadcrumb-section hidden-xs hidden-sm">
+            <ul class="breadcrumb" vocab="http://schema.org/" typeof="BreadcrumbList">
+                <li property="itemListElement" typeof="ListItem">
+                    <a href="#/"><u>Trang chủ</u></a>
+                </li>
+                <li class="active" property="itemListElement" typeof="ListItem">
+                    thu-tu-vui-ve&nbsp;<span class="breadcrumb-value-count">()</span>
+                </li>
+            </ul>
+        </div>
+    </div><a tabindex="0" title="Content" id="skip-to-content"></a>
+    <div class="toko-main-container">
+        <div class="fluid-container mh-70">
+            <div class="global-alerts"></div>
+            <div class="no-space">
+                <div class="row">
+                    <div class="col-xs-12 no-space">
+                        <div class="">
+                            <div class="row">
+                                <rotating-banner class="rotating-banner-component ng-scope">
+                                    <div>
+                                        <div class="rotating-banner-overflow">
+                                            <!-- ngIf: vm.btns.length> 1 -->
+                                            <div class="tools controls ng-scope" ng-if-end="">
+                                            </div><!-- end ngIf: vm.btns.length> 1 -->
+                                            <div>
+                                                <div>
+                                                    <div class="sh-banner-container layout-CENTER_CENTER mobileLayout-CENTER cinematic">
+                                                        <img src="~/Content/Image/banner_samsung_conek.jpg" class="sh-banner-major-img">
+
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </rotating-banner>
+                            </div>
+                        </div>
+
+                        <div class="">
+                            <div class="container">
+                                @RenderBody()
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="main-footer ">
+            <div class="footer-section footer-top footer-v3">
+                <div class="container-fluid">
+                    <div class="footer-top-content row">
+                        <div class="col-sm-12 col-xs-12"> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section footer-middle footer-v3">
+                <div class="">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12">
+                            <div class="link-back-to-top">
+                                <a href="#"
+                                   class="btn-back-to-top" data-omni="back to top"> Trở lại đầu trang</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row" set-anchor-title="">
+                        <div class="col-sm-12 col-xs-12 footer-navigation">
+                            <div class="links links-column footer-links two-children">
+                                <ul toggle-speed="false" toggle-easing="swing" class="footer-accordion"
+                                    ng-class="{&#39;accordion-item&#39;: isMobile}" anchor="false" simple="true" aria-expanded="false"
+                                    data-index="0">
+                                    <li class="two-children-list generated-footertopcolumnnavnode-00 ">
+                                        <strong class="accordion-toggle footer-accordion-title footer-title" tabindex="0">
+                                            Sản Phẩm &amp; Dịch
+                                            Vụ <span class="more-less icon-arrow-down" title="Expand">&nbsp;</span> <span class="more-less icon-arrow-up" title="Collapse">&nbsp;</span>
+                                        </strong> <strong class="footer-non-accordion-title footer-title"> Sản Phẩm &amp; Dịch Vụ</strong>
+                                        <ul>
+                                            <li class="footer-accordion-details">
+                                                <ul>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-000"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self"
+                                                           title="Điện Thoại Thông Minh" class="footer-top-item-link " data-tracking="" data-main=""
+                                                           data-omni="" data-omni-type="" data-omni-data=""> Điện Thoại Thông Minh</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-001"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#"
+                                                           target="_self" title="Máy Tính Bảng" class="footer-top-item-link " data-tracking=""
+                                                           data-main="" data-omni="" data-omni-type="" data-omni-data=""> Máy Tính Bảng</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-002"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self" title="Thiết Bị Âm Thanh"
+                                                           class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                           data-omni-data=""> Thiết Bị Âm Thanh</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-003"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#"
+                                                           target="_self" title="Thiết Bị Đeo" class="footer-top-item-link " data-tracking=""
+                                                           data-main="" data-omni="" data-omni-type="" data-omni-data=""> Thiết Bị Đeo</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-004"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self" title="Smart Switch"
+                                                           class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                           data-omni-data=""> Smart Switch</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-005"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self" title="Phụ Kiện"
+                                                           class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                           data-omni-data=""> Phụ Kiện</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-006"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#tvs/"
+                                                           target="_self" title="TVs" class="footer-top-item-link " data-tracking="" data-main=""
+                                                           data-omni="" data-omni-type="" data-omni-data=""> TVs</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-007"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self" title="Lifestyle TVs"
+                                                           class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                           data-omni-data=""> Lifestyle TVs</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                    <li class="two-children-list generated-footertopcolumnnavnode-01 empty-link-name">
+                                        <strong class="accordion-toggle footer-accordion-title footer-title" tabindex="0">
+                                            <span class="more-less icon-arrow-down" title="Expand">&nbsp;</span> <span class="more-less icon-arrow-up" title="Collapse">&nbsp;</span>
+                                        </strong> <strong class="footer-non-accordion-title footer-title"> </strong>
+                                        <ul>
+                                            <li class="footer-accordion-details">
+                                                <ul>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-010"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self" title="Sound Devices"
+                                                           class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                           data-omni-data=""> Thiết Bị Nghe Nhìn</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-011"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self" title="Tủ Lạnh"
+                                                           class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                           data-omni-data=""> Tủ Lạnh</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-012"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self"
+                                                           title="Máy Giặt &amp; Máy Sấy" class="footer-top-item-link " data-tracking="" data-main=""
+                                                           data-omni="" data-omni-type="" data-omni-data="">
+                                                            Máy Giặt &amp; Máy
+                                                            Sấy
+                                                        </a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-013"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#" target="_self"
+                                                           title="Giải Pháp Không Khí" class="footer-top-item-link " data-tracking="" data-main=""
+                                                           data-omni="" data-omni-type="" data-omni-data=""> Giải Pháp Không Khí</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-014"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#"
+                                                           target="_self" title="Gia Dụng Nhà Bếp" class="footer-top-item-link " data-tracking=""
+                                                           data-main="" data-omni="" data-omni-type="" data-omni-data=""> Gia Dụng Nhà Bếp</a>
+                                                    </li>
+                                                    <li data-uid="generated-FooterTopColumnNavNode-015"
+                                                        class=" link-only auto icon-svg-arw-right ">
+                                                        <a href="#"
+                                                           target="_self" title="Màn Hình" class="footer-top-item-link " data-tracking=""
+                                                           data-main="" data-omni="" data-omni-type="" data-omni-data=""> Màn Hình</a>
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="links links-column generated-footertopcolumnnavnode-10 footer-links">
+                                <div toggle-speed="false" toggle-easing="swing" class="footer-accordion"
+                                     ng-class="{&#39;accordion-item&#39;: isMobile}" anchor="false" simple="true" aria-expanded="false"
+                                     data-index="1">
+                                    <strong class="accordion-toggle footer-accordion-title footer-title" tabindex="0">
+                                        Mua Trực Tuyến <span class="more-less icon-arrow-down" title="Expand">&nbsp;</span> <span class="more-less icon-arrow-up" title="Collapse">&nbsp;</span>
+                                    </strong> <strong class="footer-non-accordion-title footer-title">Mua Trực Tuyến</strong>
+                                    <div class="footer-accordion-details">
+                                        <ul>
+                                            <li data-uid="generated-FooterTopColumnNavNode-100" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self" title="Ưu Đãi Độc Quyền"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Ưu Đãi Độc Quyền</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-101" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self" title="Samsung 68"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Samsung 68</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-102" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self"
+                                                   title="Cửa Hàng Trải Nghiệm Samsung" class="footer-top-item-link " data-tracking=""
+                                                   data-main="" data-omni="" data-omni-type="" data-omni-data="">
+                                                    Cửa Hàng Trải Nghiệm
+                                                    Samsung
+                                                </a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-103" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self" title="Tìm Cửa Hàng"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Tìm Cửa Hàng</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="links links-column generated-footertopcolumnnavnode-20 footer-links">
+                                <div toggle-speed="false" toggle-easing="swing" class="footer-accordion"
+                                     ng-class="{&#39;accordion-item&#39;: isMobile}" anchor="false" simple="true" aria-expanded="false"
+                                     data-index="2">
+                                    <strong class="accordion-toggle footer-accordion-title footer-title" tabindex="0">
+                                        Bạn Cần Hỗ Trợ? <span class="more-less icon-arrow-down" title="Expand">&nbsp;</span> <span class="more-less icon-arrow-up" title="Collapse">&nbsp;</span>
+                                    </strong> <strong class="footer-non-accordion-title footer-title">Bạn Cần Hỗ Trợ?</strong>
+                                    <div class="footer-accordion-details">
+                                        <ul>
+                                            <li data-uid="generated-FooterTopColumnNavNode-200" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self" title="Liên Hệ"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Liên Hệ</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-201" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="" target="_self"
+                                                   title="Hỗ Trợ Dịch Vụ" class="footer-top-item-link " data-tracking="" data-main=""
+                                                   data-omni="" data-omni-type="" data-omni-data=""> Hỗ Trợ Dịch Vụ</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-202" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self"
+                                                   title="Hỗ Trợ Trực Tuyến" class="footer-top-item-link " data-tracking="" data-main=""
+                                                   data-omni="" data-omni-type="" data-omni-data=""> Hỗ Trợ Trực Tuyến</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-203" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#"
+                                                   target="_self" title="Email" class="footer-top-item-link " data-tracking="" data-main=""
+                                                   data-omni="" data-omni-type="" data-omni-data=""> Email</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-204" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self" title="Điện Thoại"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Điện Thoại</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-205" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#" target="_self"
+                                                   title="Trung Tâm Bảo Hành" class="footer-top-item-link " data-tracking="" data-main=""
+                                                   data-omni="" data-omni-type="" data-omni-data=""> Trung Tâm Bảo Hành</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="links links-column generated-footertopcolumnnavnode-30 footer-links">
+                                <div toggle-speed="false" toggle-easing="swing" class="footer-accordion"
+                                     ng-class="{&#39;accordion-item&#39;: isMobile}" anchor="false" simple="true" aria-expanded="false"
+                                     data-index="3">
+                                    <strong class="accordion-toggle footer-accordion-title footer-title" tabindex="0">
+                                        Công Ty <span class="more-less icon-arrow-down" title="Expand">&nbsp;</span> <span class="more-less icon-arrow-up" title="Collapse">&nbsp;</span>
+                                    </strong> <strong class="footer-non-accordion-title footer-title">Công Ty</strong>
+                                    <div class="footer-accordion-details">
+                                        <ul>
+                                            <li data-uid="generated-FooterTopColumnNavNode-300" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="#aboutsamsung/home/" target="_self" title="Về Chúng Tôi"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Về Chúng Tôi</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-301" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="https://www.samsung.com/global/ir/" target="_self" title="Quan Hệ Nhà Đầu Tư"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Quan Hệ Nhà Đầu Tư</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-302" class=" link-only auto icon-svg-arw-right ">
+                                                <a href="https://news.samsung.com/vn/" target="_self" title="Tin Tức &amp; Sự Kiện"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Tin Tức &amp; Sự Kiện</a>
+                                            </li>
+                                            <li data-uid="generated-FooterTopColumnNavNode-303"
+                                                class=" link-only auto link-new-window icon-new-window ">
+                                                <a href="https://csr.samsung.com/vi/main.do" target="_blank" title="Công Dân Doanh Nghiệp"
+                                                   class="footer-top-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                                   data-omni-data=""> Công Dân Doanh Nghiệp</a>
+                                            </li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12 footer-additionalInfo">
+                            <div class="footer-notice-section">
+                                <div class="copyright">
+                                    <p>Bản quyền ©1995-2020 Samsung bảo lưu mọi quyền. </p>
+                                    <p>
+                                        Công ty TNHH Điện Tử Samsung Vina<br>Giấy CNĐT: 411043002319, do UBND TP HCM cấp ngày
+                                        28/8/2007<br>Địa chỉ: Số 2, đường Hải Triều, Phường Bến Nghé, Quận 1, TP. Hồ Chí Minh<br>Điện
+                                        thoại: +84-2839157310
+                                    </p>
+                                </div>
+                            </div>
+                            <div class="footer-lang icon-arrow-right">
+                                <a href="#"
+                                   data-omni="ipredirectionLocalList" title="Ghé thăm trang chủ của địa điểm hoặc khu vực của bạn">
+                                    <span>Việt Nam</span>/<span>Vietnamese</span>
+                                </a>
+                                <div class="icon-arrow-right-white"></div>
+                            </div>
+                            <div class="footer-certified-section">
+                                <ul>
+                                    <li data-uid="generated-NavLink2" class=" block-icon icon-svg-arw-right ">
+                                        <a href="#"
+                                           target="_self" title="" class=" " data-tracking="" data-omni="" data-omni-type=""
+                                           data-omni-data="">
+                                            <img class=""
+                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 data-src="https://images.samsung.com/is/image/samsung/assets/vn/p6_gro1/p6_initial_footer/gov-logos-1.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li data-uid="generated-NavLink1" class=" block-icon link-new-window icon-new-window ">
+                                        <a href="#" target="_blank" title="" class=" "
+                                           data-tracking="" data-omni="" data-omni-type="" data-omni-data="">
+                                            <img class=""
+                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 data-src="https://images.samsung.com/is/image/samsung/assets/vn/p6_gro1/p6_initial_footer/gov-logos-2.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                    <li data-uid="generated-NavLink0" class=" block-icon link-new-window icon-new-window ">
+                                        <a href="#" target="_blank" title="" class=" "
+                                           data-tracking="" data-omni="" data-omni-type="" data-omni-data="">
+                                            <img class=""
+                                                 src="data:image/gif;base64,R0lGODlhAQABAAAAACH5BAEKAAEALAAAAAABAAEAAAICTAEAOw=="
+                                                 data-src="https://images.samsung.com/is/image/samsung/assets/vn/p6_gro1/p6_initial_footer/gov-logos-3.png"
+                                                 alt="">
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-section footer-bottom footer-v3">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12 col-xs-12 footer-bottom-order">
+                            <div class="footer-bottom-nav">
+                                <ul>
+                                    <li>
+                                        <div class="footer-lang ">
+                                            <a href="#
+                                               data-omni="ipredirectionLocalList" title="Ghé thăm trang chủ của địa điểm hoặc khu vực của bạn">
+                                                <span>
+                                                    Việt
+                                                    Nam
+                                                </span>/<span>Vietnamese</span>
+                                            </a>
+                                            <div class="icon-arrow-right-white"></div>
+                                        </div>
+                                    </li>
+                                    <li data-uid="generated-FooterBottomNavNode-NavLink0-accessibility"
+                                        class=" link-only auto icon-svg-arw-right ">
+                                        <a href="#" target="_self" title="Trợ Giúp Truy Cập"
+                                           class="footer-bottom-item-link " data-tracking="" data-main="" data-omni="" data-omni-type=""
+                                           data-omni-data=""> Trợ Giúp Truy Cập</a>
+                                    </li>
+                                    <li data-uid="generated-FooterBottomNavNode-NavLink1-termsandconditions"
+                                        class=" link-only auto link-new-window icon-new-window ">
+                                        <a href="#" target="_blank"
+                                           title="Điều Khoản &amp; Điều Kiện" class="footer-bottom-item-link " data-tracking="" data-main=""
+                                           data-omni="" data-omni-type="" data-omni-data=""> Điều Khoản &amp; Điều Kiện</a>
+                                    </li>
+                                    <li data-uid="generated-FooterBottomNavNode-NavLink2-privacy"
+                                        class=" link-only auto icon-svg-arw-right ">
+                                        <a href="#info/privacy/"
+                                           target="_self" title="Bảo Mật" class="footer-bottom-item-link " data-tracking="" data-main=""
+                                           data-omni="" data-omni-type="" data-omni-data=""> Bảo Mật</a>
+                                    </li>
+                                    <li data-uid="generated-FooterBottomNavNode-NavLink3-legal"
+                                        class=" link-only auto icon-svg-arw-right ">
+                                        <a href="#info/legal/"
+                                           target="_self" title="Pháp Lý" class="footer-bottom-item-link " data-tracking="" data-main=""
+                                           data-omni="" data-omni-type="" data-omni-data=""> Pháp Lý</a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="footer-social-media-nav">
+                                <ul>
+                                    <li data-uid="generated-StayInTheLoopNavLink" class=" link-only auto link-title icon-svg-arw-right ">
+                                        <a href="javascript:void(0);" target="_self" class="footer-top-item-link " data-tracking=""
+                                           data-main="" data-omni="" data-omni-type="" data-omni-data=""> Duy Trì Cập Nhật Thông Tin?</a>
+                                    </li>
+                                    <li data-uid="FooterTopColumn4NavNode-NavLink0-facebook"
+                                        class=" inline-icon link-new-window icon-new-window ">
+                                        <a href="#" target="_blank" title="Facebook"
+                                           class="social-network-item facebook-item " data-tracking="" data-omni="" data-omni-type=""
+                                           data-omni-data="">
+                                            <span class="icon facebook-icon no-rtl">
+                                                <em class="sr-only">Facebook</em>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li data-uid="FooterTopColumn4NavNode-NavLink1-youtube"
+                                        class=" inline-icon link-new-window icon-new-window ">
+                                        <a href="#" target="_blank" title="Youtube"
+                                           class="social-network-item youtube-item " data-tracking="" data-omni="" data-omni-type=""
+                                           data-omni-data="">
+                                            <span class="icon youtube-icon no-rtl">
+                                                <em class="sr-only">YouTube</em>
+                                            </span>
+                                        </a>
+                                    </li>
+                                    <li data-uid="FooterTopColumn4NavNode-NavLink2-instagram"
+                                        class=" inline-icon link-new-window icon-new-window ">
+                                        <a href="#" target="_blank" title="Instagram"
+                                           class="social-network-item instagram-item " data-tracking="" data-omni="" data-omni-type=""
+                                           data-omni-data="">
+                                            <span class="icon instagram-icon no-rtl">
+                                                <em class="sr-only">Instagram</em>
+                                            </span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </footer>
+
+        <div class="phone-gif">
+            <div class="fancybox" onclick="window.location='tel: 0985983887'">
+                <div class="coccoc-alo-phone coccoc-alo-green coccoc-alo-show" id="coccoc-alo-phoneIcon"
+                     style="right: 5%; top: 10%;">
+                    <div class="coccoc-alo-ph-circle">&nbsp;</div>
+                    <div class="coccoc-alo-ph-circle-fill">&nbsp;</div>
+                    <div class="coccoc-alo-ph-img-circle">&nbsp;</div>
+                </div>
+            </div>
+            <div class="clicktocall"><a class="call" href="tel:0985983887">Gọi ngay<br><b>0985.983.887</b></a></div>
+        </div>
+    </div>
+    </main>
+    <div id="ariaStatusMsg" class="skip" role="status" aria-relevant="text" aria-live="polite"></div>
+    <script type="text/javascript">
+        var ACC = { config: {} };
+        ACC.config.contextPath = "";
+        ACC.config.ssov2 = "true";
+    </script>
+    <backtotop-v2>
+        <div class="s-gotop-wrap fade-in s-show btn-back-to-top"><button class="s-btn-gotop"></button></div>
+    </backtotop-v2>
+    @Scripts.Render("~/bundles/samsung")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

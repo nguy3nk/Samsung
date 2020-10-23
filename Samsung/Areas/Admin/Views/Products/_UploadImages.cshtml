@@ -1,0 +1,109 @@
+﻿@model Samsung.Areas.Admin.Data.Product
+
+
+<div class="card-header py-3">
+    <div class="card-title align-items-start flex-column">
+        <h3 class="card-label font-weight-bolder text-dark">Ảnh sản phẩm</h3>
+        <span class="text-muted font-weight-bold font-size-sm mt-1">Thay đổi thông tin</span>
+    </div>
+    <div class="card-toolbar">
+        <button type="reset" class="btn btn-success mr-2">@Html.ActionLink("Edit", "Edit", new { id = Model.Product_Id }, new { style = "text-decoration:none; color: inherit;" }) </button>
+        <button type="reset" class="btn btn-secondary">@Html.ActionLink("Back to List", "Index", new { style = "text-decoration:none; color: inherit;" })</button>
+    </div>
+</div>
+<div class="form">
+    <div class="card-body row">
+        <!--begin::Heading-->
+        <label for="file">Upload Image:</label>
+        <input type="file" name="productImages[]" id="file" style="width: 100%;" accept="image/x-png,image/gif,image/jpeg" multiple />
+
+        <div class="separator separator-dashed my-5"></div>
+    </div>
+</div>
+<div class="fbScrollableAreaContent">
+    <span class="image_preview">
+        <div class="_jfc" id="ex_image_upload" aria-controls="js_9a" style="width: 100px; height: 100px;">
+            <img alt="xx1.png" class="img" src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-0/c0.1.100.100a/p100x100/122208651_3275964605856562_8014053869394350570_n.jpg?_nc_cat=111&amp;_nc_sid=0d5531&amp;_nc_ohc=051u1lfTHaMAX9NzD91&amp;_nc_ht=scontent.fhan3-2.fna&amp;_nc_tp=27&amp;oh=a1da27ef85266f1e23fc6036cbcacd66&amp;oe=5FB68ED6" width="100" height="100">
+            <button class="_jfe _50zy _50-0 _50z_ _5upp _42ft" type="button" title="Gỡ ảnh"></button>
+            <div class="_jfi" role="presentation" tabindex="1">
+                <button class="_cwf _jfh" tabindex="0" aria-label="Gắn thẻ" data-tooltip-content="Gắn thẻ" data-hover="tooltip" aria-describedby="js_k">
+                    <div class="_cwg"></div>
+                </button>
+                <button class="_4_z4 _jfh" tabindex="0" aria-label="Chỉnh sửa ảnh" data-tooltip-content="Chỉnh sửa ảnh" data-hover="tooltip" id="js_9f">
+                    <div class="_4_z5"></div>
+                </button>
+            </div>
+        </div>
+    </span>
+    <span>
+        <div class="_jfc" id="js_99" aria-controls="js_9a" style="width: 100px; height: 100px;">
+            <img alt="xx1.png" class="img" src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-0/c0.1.100.100a/p100x100/122208651_3275964605856562_8014053869394350570_n.jpg?_nc_cat=111&amp;_nc_sid=0d5531&amp;_nc_ohc=051u1lfTHaMAX9NzD91&amp;_nc_ht=scontent.fhan3-2.fna&amp;_nc_tp=27&amp;oh=a1da27ef85266f1e23fc6036cbcacd66&amp;oe=5FB68ED6" width="100" height="100">
+            <button class="_jfe _50zy _50-0 _50z_ _5upp _42ft" type="button" title="Gỡ ảnh"></button>
+            <div class="_jfi" role="presentation" tabindex="1">
+                <button class="_cwf _jfh" tabindex="0" aria-label="Gắn thẻ" data-tooltip-content="Gắn thẻ" data-hover="tooltip" aria-describedby="js_k">
+                    <div class="_cwg"></div>
+                </button>
+                <button class="_4_z4 _jfh" tabindex="0" aria-label="Chỉnh sửa ảnh" data-tooltip-content="Chỉnh sửa ảnh" data-hover="tooltip" id="js_9f">
+                    <div class="_4_z5"></div>
+                </button>
+            </div>
+        </div>
+    </span>
+    <span>
+        <div class="_jfc" id="js_99" aria-controls="js_9a" style="width: 100px; height: 100px;">
+            <img alt="xx1.png" class="img" src="https://scontent.fhan3-2.fna.fbcdn.net/v/t1.0-0/c0.1.100.100a/p100x100/122208651_3275964605856562_8014053869394350570_n.jpg?_nc_cat=111&amp;_nc_sid=0d5531&amp;_nc_ohc=051u1lfTHaMAX9NzD91&amp;_nc_ht=scontent.fhan3-2.fna&amp;_nc_tp=27&amp;oh=a1da27ef85266f1e23fc6036cbcacd66&amp;oe=5FB68ED6" width="100" height="100">
+            <button class="_jfe _50zy _50-0 _50z_ _5upp _42ft" type="button" title="Gỡ ảnh"></button>
+            <div class="_jfi" role="presentation" tabindex="1">
+                <button class="_cwf _jfh" tabindex="0" aria-label="Gắn thẻ" data-tooltip-content="Gắn thẻ" data-hover="tooltip" aria-describedby="js_k">
+                    <div class="_cwg"></div>
+                </button>
+                <button class="_4_z4 _jfh" tabindex="0" aria-label="Chỉnh sửa ảnh" data-tooltip-content="Chỉnh sửa ảnh" data-hover="tooltip" id="js_9f">
+                    <div class="_4_z5"></div>
+                </button>
+            </div>
+        </div>
+    </span>
+    <span class="_kkr">
+        <div class="_m _6a">
+            <a class="__9u __9t" rel="ignore">
+                <div class="_3jk"><input accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*, image/heic, image/heif" multiple="" name="composer_photo" title="Chọn file để tải lên" display="inline-block" type="file" class="_n _5f0v" id="js_90"></div>
+            </a>
+        </div>
+    </span>
+</div>
+<div>
+    <div class="_6a _4mvf _fk5" id="js_92">
+        <span class="_m _5g_r">
+            <a role="presentation" tabindex="-1" rel="ignore">
+                <div uiconfig="[object Object]" class="_m_1 _1pnt" data-tooltip-delay="500" style="background: rgb(228, 240, 213);">
+                    <i class="_4a0a img sp_40vQqKQ08hh sx_4bba29" alt=""></i>
+                    <div class="_2aha" aria-hidden="true">Thêm Ảnh</div>
+                </div>
+                <div class="_3jk">
+                <input aria-label="Thêm ảnh hoặc video" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*, image/heic, image/heif" containerclassname="_5g_r" multiple="" name="composer_photo[]" display="inline" tabindex="0" type="file" class="_n _5f0v" id="js_91">
+                </div>
+            </a>
+        </span>
+    </div>
+</div>
+
+
+@Scripts.Render("~/bundles/jquery")
+<script type="text/javascript">
+    function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+
+            reader.onload = function (e) {
+                var cloneImage = $(".image_preview").clone().find('img').attr('src', e.target.result);
+                cloneImage.appendTo(".fbScrollableAreaContent");
+            }
+
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+
+    $("#js_91").change(function () {
+        readURL(this);
+    });
+</script>
